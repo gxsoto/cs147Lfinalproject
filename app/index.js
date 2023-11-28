@@ -1,4 +1,5 @@
-import { View, Text, Image, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import { Link } from "expo-router/";
 
 // EXPORTING something we build!
 export default function App() {
@@ -7,6 +8,16 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.paragraph}>Main Screen</Text>
+      <Link href={{ pathname: "/eventDescriptionView" }}>
+        <Text style={styles.linkText}>
+          Click on this text to go to an event's description page
+        </Text>
+      </Link>
+      <Link href="/userProfileView">
+        <Text style={styles.linkText}>
+          Click on this text to go to your user's profile
+        </Text>
+      </Link>
     </View>
   );
 }
@@ -23,6 +34,10 @@ const styles = StyleSheet.create({
   paragraph: {
     fontSize: 24,
     fontWeight: "bold",
+    textAlign: "center",
+  },
+  linkText: {
+    fontSize: 16,
     textAlign: "center",
   },
 });

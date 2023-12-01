@@ -13,7 +13,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import EventSquare from "../assets/EventSquare";
 import SampleComp from "../assets/SampleComp";
-
+import { Ionicons } from "@expo/vector-icons";
+import { Pressable } from "react-native";
+import { SafeAreaView } from "react-native";
 export default function App() {
   const [events, setEvent] = useState(null);
   const [cityName, setCityName] = useState("San Francisco");
@@ -69,24 +71,24 @@ export default function App() {
   }
 
   return (
+    //<SafeAreaView style={styles.bigContainer}>
     <View style={styles.container}>
       <View style={styles.search}>
-        <Text>Type a city below and click submit to search</Text>
         <TextInput
           style={styles.input}
           onChangeText={(newText) => setTyped(newText)}
           placeholder="Input a city name"
           keyboardType="numeric"
         />
-        <Button
-          style={styles.button}
-          onPress={() => setCityName(typed)}
-          title="Submit"
-          color="#841584"
-        />
+        <Pressable onPress={() => setCityName(typed)}>
+          <View>
+            <Ionicons name="search" size={24} color="purple" />
+          </View>
+        </Pressable>
       </View>
       <View style={styles.content}>{contentDisplayed}</View>
     </View>
+    //</SafeAreaView>
   );
 }
 
@@ -118,6 +120,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  bigContainer: {
+    width: "100%",
+  },
   container: {
     flex: 1, // We'll learn about "flex" and other flexbox properties in class!
     flexDirection: "column", // Try: 'row' or 'column'
@@ -125,14 +130,17 @@ const styles = StyleSheet.create({
     justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: "#ecf0f1",
     padding: 8,
+    //width: "100%",
   },
   search: {
-    marginTop: 30,
-    height: "20%",
+    marginVertical: 15,
+    height: "10%",
     width: "100%",
     borderWidth: 5,
     borderColor: "yellow",
     justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
   },
   content: {
     height: "80%",

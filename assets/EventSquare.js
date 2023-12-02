@@ -18,7 +18,11 @@ const EventItem = ({ item, index }) => {
       <View style={styles.eventImageContainer}>
         <Image style={styles.eventImage} source={{ uri: pic }} />
       </View>
-      <Text style={styles.eventName}> {item.name} </Text>
+      <View style={styles.eventNameContainer}>
+        <Text numberOfLines={2} style={styles.eventName}>
+          {item.name}
+        </Text>
+      </View>
     </View>
   );
 };
@@ -33,7 +37,9 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: 15,
     borderWidth: 5,
-    borderColor: "red",
+    borderColor: "#DDA0DD",
+    borderRadius: 20,
+    backgroundColor: "#AFEEEE",
   },
   eventImageContainer: {
     height: "100%",
@@ -42,8 +48,14 @@ const styles = StyleSheet.create({
   eventImage: {
     height: "100%",
     width: "100%",
+    borderTopLeftRadius: 15,
+    borderBottomLeftRadius: 15,
   },
   eventName: {
-    fontSize: 12,
+    fontSize: 16,
+  },
+  eventNameContainer: {
+    width: "55%",
+    marginHorizontal: 10,
   },
 });

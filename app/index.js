@@ -73,18 +73,21 @@ export default function App() {
   return (
     //<SafeAreaView style={styles.bigContainer}>
     <View style={styles.container}>
-      <View style={styles.search}>
-        <TextInput
-          style={styles.input}
-          onChangeText={(newText) => setTyped(newText)}
-          placeholder="Input a city name"
-          keyboardType="numeric"
-        />
-        <Pressable onPress={() => setCityName(typed)}>
-          <View>
-            <Ionicons name="search" size={24} color="purple" />
-          </View>
-        </Pressable>
+      <View style={styles.header}>
+        <Ionicons name="person-circle-sharp" size={40} color="plum" />
+        <View style={styles.search}>
+          <TextInput
+            style={styles.input}
+            onChangeText={(newText) => setTyped(newText)}
+            placeholder="Input a city name"
+            keyboardType="numeric"
+          />
+          <Pressable onPress={() => setCityName(typed)}>
+            <View>
+              <Ionicons name="search" size={24} color="#AFEEEE" />
+            </View>
+          </Pressable>
+        </View>
       </View>
       <View style={styles.content}>{contentDisplayed}</View>
     </View>
@@ -128,17 +131,28 @@ const styles = StyleSheet.create({
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "#FFFAF0",
+    //backgroundColor: "#696969",
     padding: 8,
     //width: "100%",
   },
-  search: {
-    marginVertical: 15,
-    height: "10%",
+  header: {
+    height: "7%",
     width: "100%",
-    borderWidth: 5,
-    borderColor: "yellow",
-    justifyContent: "center",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    marginVertical: 15,
+  },
+  search: {
+    //marginVertical: 15,
+    height: "85%",
+    //width: "90%",
+    borderWidth: 10,
+    borderColor: "#DDA0DD",
+    borderRadius: 10,
+    backgroundColor: "#DDA0DD",
+    justifyContent: "space-around",
     flexDirection: "row",
     alignItems: "center",
   },

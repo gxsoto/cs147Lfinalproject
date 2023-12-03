@@ -27,15 +27,15 @@ const EventItem = ({ item, index }) => {
           </Text>
         </View>
         <View style={styles.eventLocatonContainer}>
-          <Ionicons name="ios-location-sharp" size={18} color="black" />
+          <Ionicons name="ios-location-sharp" size={18} color="#3A4D39" />
           <Text style={styles.text}>{item._embedded.venues[0].name}</Text>
         </View>
         <View style={styles.day}>
-          <Ionicons name="md-calendar-sharp" size={18} color="black" />
+          <Ionicons name="md-calendar-sharp" size={18} color="#3A4D39" />
           <Text style={styles.text}>{item.dates.start.localDate}</Text>
         </View>
         <View style={styles.time}>
-          <Ionicons name="time-sharp" size={18} color="black" />
+          <Ionicons name="time-sharp" size={18} color="#3A4D39" />
           <Text style={styles.text}>{item.dates.start.localTime}</Text>
         </View>
       </View>
@@ -53,12 +53,13 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: 15,
     borderWidth: 5,
-    borderColor: "#DDA0DD",
+    borderColor: "#739072",
     borderRadius: 20,
-    backgroundColor: "#AFEEEE",
+    backgroundColor: "#ECE3CE",
   },
   text: {
     paddingHorizontal: 7,
+    color: "#4F6F52",
   },
   right: {
     flex: 1,
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
   eventName: {
     fontSize: 16,
     fontWeight: "bold",
+    color: "#3A4D39",
   },
   eventNameContainer: {
     width: "100%",

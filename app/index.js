@@ -15,6 +15,7 @@ import EventSquare from "../assets/EventSquare";
 import SampleComp from "../assets/SampleComp";
 import { Ionicons } from "@expo/vector-icons";
 import { Pressable } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native";
 export default function App() {
   const [events, setEvent] = useState(null);
@@ -74,54 +75,42 @@ export default function App() {
     //<SafeAreaView style={styles.bigContainer}>
     <View style={styles.container}>
       <View style={styles.header}>
-        <Link href={{ pathname: "/userState" }}>
-          <Ionicons name="person-circle-sharp" size={40} color="plum" />
-        </Link>
-        <View style={styles.search}>
-          <TextInput
-            style={styles.input}
-            onChangeText={(newText) => setTyped(newText)}
-            placeholder="Input a city name"
-            keyboardType="numeric"
-          />
-          <Pressable onPress={() => setCityName(typed)}>
-            <View>
-              <Ionicons name="search" size={24} color="#AFEEEE" />
-            </View>
-          </Pressable>
+        <View style={styles.headerTop}>
+          <Link href={{ pathname: "/userState" }}>
+            <Ionicons name="person-circle-sharp" size={40} color="plum" />
+          </Link>
+          <View style={styles.search}>
+            <TextInput
+              style={styles.input}
+              onChangeText={(newText) => setTyped(newText)}
+              placeholder="Input a city name"
+              keyboardType="numeric"
+            />
+            <Pressable onPress={() => setCityName(typed)}>
+              <View>
+                <Ionicons name="search" size={24} color="#AFEEEE" />
+              </View>
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.locateContainer}>
+          <Link href={{ pathname: "/mapView" }}>
+            <MaterialCommunityIcons
+              name="map-marker-question"
+              size={20}
+              color="#3876BF"
+            />
+            <Text style={styles.locateText}>
+              Click here to locate yourself and see major cities around!
+            </Text>
+          </Link>
         </View>
       </View>
+
       <View style={styles.content}>{contentDisplayed}</View>
     </View>
     //</SafeAreaView>
   );
-}
-
-{
-  /* <View style={styles.container}>
-      <Text style={styles.paragraph}>Main Screen</Text>
-      <Link href={{ pathname: "/eventDescriptionView" }}>
-        <Text style={styles.linkText}>
-          Click on this text to go to an event's description page
-        </Text>
-      </Link>
-      <Link href="/userProfileView">
-        <Text style={styles.linkText}>
-          Click on this text to go to your user's profile
-        </Text>
-      </Link>
-      <TextInput
-        style={styles.input}
-        onChangeText={(newText) => setTyped(newText)}
-        placeholder="Input a city name"
-        keyboardType="numeric"
-      />
-      <Button
-        onPress={() => setCityName(typed)}
-        title="Submit"
-        color="#841584"
-      />
-</View> */
 }
 
 const styles = StyleSheet.create({
@@ -135,26 +124,39 @@ const styles = StyleSheet.create({
     justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: "#FFFAF0",
     //backgroundColor: "#696969",
-    padding: 8,
+    padding: 10,
     //width: "100%",
   },
   header: {
-    height: "7%",
+    height: "10%",
     width: "100%",
+    flexDirection: "column",
+    alignContent: "center",
+  },
+  headerTop: {
+    flex: 2,
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
-    marginVertical: 15,
+  },
+  locateContainer: {
+    flex: 1,
+    // borderWidth: 2,
+    // borderColor: "red",
+    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    alignContent: "flex-start",
   },
   search: {
     //marginVertical: 15,
     height: "85%",
     //width: "90%",
     borderWidth: 10,
-    borderColor: "#DDA0DD",
+    borderColor: "plum",
     borderRadius: 10,
-    backgroundColor: "#DDA0DD",
-    justifyContent: "space-around",
+    backgroundColor: "plum",
+    //justifyContent: "space-around",
     flexDirection: "row",
     alignItems: "center",
   },
@@ -181,5 +183,13 @@ const styles = StyleSheet.create({
   button: {
     height: 40,
     width: 200,
+  },
+  locateText: {
+    fontSize: 14,
+    color: "#3876BF",
+    //marginHorizontal: 8,
+    //paddingHorizontal: 8,
+    // borderWidth: 2,
+    // borderColor: "red",
   },
 });

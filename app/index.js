@@ -74,7 +74,9 @@ export default function App() {
     //<SafeAreaView style={styles.bigContainer}>
     <View style={styles.container}>
       <View style={styles.header}>
-        <Ionicons name="person-circle-sharp" size={40} color="plum" />
+        <Link href={{ pathname: "/userState" }}>
+          <Ionicons name="person-circle-sharp" size={40} color="plum" />
+        </Link>
         <View style={styles.search}>
           <TextInput
             style={styles.input}

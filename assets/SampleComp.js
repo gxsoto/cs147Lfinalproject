@@ -13,17 +13,9 @@ const windowHeight = Dimensions.get("window").height;
 const SampleComp = () => {
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        onChangeText={(newText) => setTyped(newText)}
-        placeholder="Input a city name"
-        keyboardType="numeric"
-      />
-      <Button
-        onPress={() => setCityName(typed)}
-        title="Submit"
-        color="#841584"
-      />
+      <Link href="/userProfileView">
+        <Text style={styles.linkText}>Click on this text to move</Text>
+      </Link>
     </View>
   );
 };

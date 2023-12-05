@@ -1,12 +1,13 @@
 import { StyleSheet, View, Dimensions, Text } from "react-native";
 import * as React from "react";
 import { WebView } from "react-native-webview";
-import { Stack } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const eventWebView = () => {
+  const params = useLocalSearchParams();
   return (
     <View style={styles.container}>
       <Stack.Screen
@@ -22,10 +23,7 @@ const eventWebView = () => {
           },
         }}
       />
-      <WebView
-        style={styles.webCont}
-        source={{ uri: "https://hci.cs.stanford.edu/courses/cs147l/2023/au/" }}
-      />
+      <WebView style={styles.webCont} source={{ uri: params.url }} />
     </View>
   );
 };

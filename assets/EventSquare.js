@@ -5,41 +5,61 @@ import {
   Image,
   Dimensions,
   Pressable,
+  SafeAreaView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+
+import { Link } from "expo-router";
+//import { SafeAreaView } from "react-native-safe-area-context";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const EventItem = ({ item, index }) => {
   const pic = item.images[0].url;
+  //const eventPromoter = item._embedded.promoter.name;
+  const eventType = item.classifications[0].segment.name;
+  const eventSubType = item.classifications[0].genre.name;
+  const eventDate = item.dates.start.localDate;
+  //const priceMin = item._embedded.priceRanges[0].min;
+  //const priceMax = item.priceRanges[0].max;
+  const eventVenue = item._embedded.venues[0].name;
+  const eventWebsite = item.url;
+  //console.log(item);
+  //console.log(item.description);
   return (
-    <View style={styles.componentContainer}>
-      <View style={styles.right}>
-        <View style={styles.eventImageContainer}>
-          <Image style={styles.eventImage} source={{ uri: pic }} />
-        </View>
-      </View>
-      <View style={styles.left}>
-        <View style={styles.eventNameContainer}>
-          <Text numberOfLines={2} style={styles.eventName}>
-            {item.name}
-          </Text>
-        </View>
-        <View style={styles.eventLocatonContainer}>
-          <Ionicons name="ios-location-sharp" size={18} color="#3A4D39" />
-          <Text style={styles.text}>{item._embedded.venues[0].name}</Text>
-        </View>
-        <View style={styles.day}>
-          <Ionicons name="md-calendar-sharp" size={18} color="#3A4D39" />
-          <Text style={styles.text}>{item.dates.start.localDate}</Text>
-        </View>
-        <View style={styles.time}>
-          <Ionicons name="time-sharp" size={18} color="#3A4D39" />
-          <Text style={styles.text}>{item.dates.start.localTime}</Text>
-        </View>
-      </View>
-    </View>
+    <SafeAreaView>
+      <Link
+        href={{
+          pathname: "/eventDescriptionView",
+          params: {
+            eventPic: pic,
+            eventDeets: eventDate,
+            type: eventType,
+            subType: eventSubType,
+            //promoter: eventPromoter,
+            //ticketPriceMin: priceMin,
+            //ticketPriceMax: priceMax,
+            venue: eventVenue,
+            website: eventWebsite,
+          },
+        }}
+        asChild
+      >
+        <Pressable>
+          <View style={styles.componentContainer}>
+            <View style={styles.eventImageContainer}>
+              <Image style={styles.eventImage} source={{ uri: pic }} />
+            </View>
+            <View style={styles.eventNameContainer}>
+              <Text numberOfLines={2} style={styles.eventName}>
+                {item.name}
+              </Text>
+            </View>
+          </View>
+        </Pressable>
+      </Link>
+    </SafeAreaView>
   );
 };
 export default EventItem;
@@ -72,8 +92,8 @@ const styles = StyleSheet.create({
     alignContent: "space-around",
   },
   eventImageContainer: {
-    height: "100%",
-    width: "100%",
+    height: "100",
+    width: "40%",
   },
   eventImage: {
     height: "100%",

@@ -48,11 +48,6 @@ export default function App() {
       });
   };
 
-  //console.log(typedCity);
-  // useEffect(() => {
-  //   console.log(typed);
-  // }, [typed]);
-
   useEffect(() => {
     console.log(cityName);
     getEvents();

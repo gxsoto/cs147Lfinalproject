@@ -1,13 +1,16 @@
 import { StyleSheet, View, Text, Button, Pressable } from "react-native";
 import * as React from "react";
-import { Stack, Link } from "expo-router";
+import { router, Stack, Link } from "expo-router";
 import { Avatar } from "@rneui/themed";
 import { useState, useEffect } from "react";
 import { TextInput } from "react-native-paper";
+
 const userProfileView = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [birthday, setBirthday] = useState("");
+
+  /* Code below that reroutes to parent screen with updated state variables was implemented through the help of this StackOverflow post: https://stackoverflow.com/questions/76183937/passing-params-with-router-back */
   return (
     <View style={styles.container}>
       <Stack.Screen
@@ -73,7 +76,19 @@ const userProfileView = () => {
       </View>
 
       <View styles={styles.saveButton}>
-        <Pressable style={styles.button}>
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            router.replace({
+              pathname: "/userState",
+              params: {
+                name: name,
+                birthday: birthday,
+                description: description,
+              },
+            });
+          }}
+        >
           <Text style={styles.saveText}>Save</Text>
         </Pressable>
       </View>

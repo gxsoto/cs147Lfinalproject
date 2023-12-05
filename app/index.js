@@ -31,12 +31,12 @@ export default function App() {
       .then((response) => {
         // handle success
         setEvent(response.data._embedded.events);
-        console.log(events);
-        console.log(cityName);
+        //console.log(events);
+        //console.log(cityName);
         // console.log(response.data._embedded.events);
         copyEvents = response.data._embedded.events;
         for (i in copyEvents) {
-          console.log(copyEvents[i].images[0].url);
+          //console.log(copyEvents[i].images[0].url);
         }
       })
       .catch(function (error) {
@@ -54,7 +54,7 @@ export default function App() {
   // }, [typed]);
 
   useEffect(() => {
-    console.log(cityName);
+    //console.log(cityName);
     getEvents();
   }, [cityName]);
 

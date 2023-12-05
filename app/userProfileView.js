@@ -15,7 +15,7 @@ const userProfileView = () => {
     <View style={styles.container}>
       <Stack.Screen
         options={{
-          title: "User View",
+          title: "Edit Profile",
           headerTintColor: "red", // this is how to change the color of the back arrow
           headerStyle: {
             backgroundColor: "white",

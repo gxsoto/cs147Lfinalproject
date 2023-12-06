@@ -16,6 +16,7 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const EventItem = ({ item, index }) => {
+  const eventName = item.name;
   const pic = item.images[0].url;
   //const eventPromoter = item._embedded.promoter.name;
   const eventType = item.classifications[0].segment.name;
@@ -33,6 +34,7 @@ const EventItem = ({ item, index }) => {
         href={{
           pathname: "/eventDescriptionView",
           params: {
+            name: eventName,
             eventPic: pic,
             eventDeets: eventDate,
             type: eventType,
@@ -92,7 +94,7 @@ const styles = StyleSheet.create({
     alignContent: "space-around",
   },
   eventImageContainer: {
-    height: "100",
+    height: "100%",
     width: "40%",
   },
   eventImage: {
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
     color: "#3A4D39",
   },
   eventNameContainer: {
-    width: "100%",
+    width: "60%",
     paddingHorizontal: 5,
     // borderWidth: 5,
     // borderColor: "yellow",

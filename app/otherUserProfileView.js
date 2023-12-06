@@ -2,6 +2,8 @@ import { StyleSheet, View, Dimensions, Text } from "react-native";
 import * as React from "react";
 import { Stack, Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 const otherUserProfileView = () => {
   return (
     <View style={styles.container}>
@@ -19,14 +21,40 @@ const otherUserProfileView = () => {
         }}
       />
       <View style={styles.userPicContainer}>
-        <Ionicons name="person-circle-sharp" size={200} color="#ecf0f1" />
-        <Text style={styles.paragraph}> User Name</Text>
+        <Ionicons name="person-circle-sharp" size={200} color="black" />
+        <Text style={styles.header}> User Name</Text>
       </View>
-      <Link href="/chatView">
-        <Text style={styles.linkText}>
-          Click on this text to send the user a message
+      <Text style={styles.header}> User Info</Text>
+      <View style={styles.userDetails}>
+        <FontAwesome name="birthday-cake" size={24} color="black" />
+        <Text style={styles.paragraph}>Birthday: </Text>
+      </View>
+      <View style={styles.userDetails}>
+        <FontAwesome5 name="transgender-alt" size={24} color="black" />
+        <Text style={styles.paragraph}>Identity: </Text>
+      </View>
+      <View style={styles.userDetails}>
+        <Ionicons name="location-sharp" size={24} color="black" />
+        <Text style={styles.paragraph}>Distance: </Text>
+      </View>
+      <View style={styles.userDetails}>
+        <FontAwesome name="heart" size={24} color="black" />
+        <Text style={styles.paragraph}>Interests: </Text>
+      </View>
+      <Text style={styles.header}> About Me</Text>
+
+      <View style={styles.aboutMeContainer}>
+        <Text style={styles.paragraph}>
+          Some bio info that the user put for themselves{" "}
         </Text>
-      </Link>
+      </View>
+
+      <View style={styles.messageBox}>
+        <Link href="/chatView">
+          <Ionicons name="chatbox-ellipses" size={24} color="black" />
+          <Text style={styles.linkText}>Chat with User</Text>
+        </Link>
+      </View>
     </View>
   );
 };
@@ -38,10 +66,20 @@ const styles = StyleSheet.create({
     flex: 1, // We'll learn about "flex" and other flexbox properties in class!
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
-    //justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
+    justifyContent: "space-around", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: "#ecf0f1",
     padding: 8,
+    borderColor: "green",
+    borderWidth: 5,
   },
+  /*
+  smallerContainer: {
+    flexDirection: "column", // Try: 'row' or 'column'
+    alignItems: "center",
+    borderColor: "red",
+    borderWidth: 5,
+  },
+  */
   header: {
     fontSize: 32,
     fontWeight: "bold",
@@ -63,5 +101,19 @@ const styles = StyleSheet.create({
   linkText: {
     fontSize: 16,
     textAlign: "center",
+  },
+  userDetails: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  aboutMeContainer: {
+    width: "100%",
+    height: "25%",
+  },
+  messageBox: {
+    //justifyContent: "flex-end",
+    borderColor: "yellow",
+    borderWidth: 5,
   },
 });

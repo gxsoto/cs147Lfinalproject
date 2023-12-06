@@ -78,7 +78,6 @@ const eventDescriptionView = () => {
             </View>
           </Pressable>
         </Link>
-
         <Link href={{ pathname: "/otherUserProfileView" }}>
           <Pressable>
             <View style={styles.randomUser}>

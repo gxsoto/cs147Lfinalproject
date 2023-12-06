@@ -113,8 +113,8 @@ const styles = StyleSheet.create({
   eventNameContainer: {
     width: "60%",
     paddingHorizontal: 5,
-    // borderWidth: 5,
-    // borderColor: "yellow",
+    //borderWidth: 5,
+    //borderColor: "yellow",
   },
   eventLocatonContainer: {
     // borderWidth: 5,

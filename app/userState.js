@@ -23,6 +23,7 @@ const userState = () => {
   const [copyName, setCopyName] = useState("");
   const [copyBday, setCopyBday] = useState("");
   const [copyDescription, setCopyDes] = useState("");
+  const [copyImage, setCopyImage] = useState("");
 
   useEffect(() => {
     const loadName = async () => {
@@ -49,19 +50,31 @@ const userState = () => {
   }, []);
 
   useEffect(() => {
+    const loadImage = async () => {
+      const image = await AsyncStorage.getItem("userImage");
+      setCopyImage(image);
+    };
+    loadImage();
+  }, []);
+
+  useEffect(() => {
     const saveData = async () => {
       try {
         await AsyncStorage.setItem("userName", params.name);
         await AsyncStorage.setItem("userBday", params.birthday);
         await AsyncStorage.setItem("userInterests", params.description);
-        //console.log()
+        await AsyncStorage.setItem("userImage", params.image);
+        setCopyImage(params.image);
+        setCopyName(params.name);
+        setCopyBday(params.birthday);
+        setCopyDes(params.description);
         console.log("save successful");
       } catch (error) {
         console.error(error);
       }
     };
     saveData();
-  }, [params.name, params.birthday, params.description]);
+  }, [params.name, params.birthday, params.description, params.image]);
 
   return (
     <View style={styles.container}>
@@ -85,7 +98,7 @@ const userState = () => {
               size="xlarge"
               rounded
               source={{
-                uri: "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg",
+                uri: copyImage,
               }}
             ></Avatar>
           </View>
@@ -125,7 +138,7 @@ const userState = () => {
                 <Text style={styles.nameTextIdentity}>Identity:</Text>
               </View>
             </View>
-            <Text style={styles.nameText}>{copyBday}</Text>
+            <Text style={styles.nameText}>{copyDescription}</Text>
           </View>
         </View>
       </View>

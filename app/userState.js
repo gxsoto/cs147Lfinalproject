@@ -54,7 +54,9 @@ const userState = () => {
         await AsyncStorage.setItem("userName", params.name);
         await AsyncStorage.setItem("userBday", params.birthday);
         await AsyncStorage.setItem("userInterests", params.description);
-        //console.log()
+        setCopyName(params.name);
+        setCopyBday(params.birthday);
+        setCopyDes(params.description);
         console.log("save successful");
       } catch (error) {
         console.error(error);
@@ -125,7 +127,7 @@ const userState = () => {
                 <Text style={styles.nameTextIdentity}>Identity:</Text>
               </View>
             </View>
-            <Text style={styles.nameText}>{copyBday}</Text>
+            <Text style={styles.nameText}>{copyDescription}</Text>
           </View>
         </View>
       </View>

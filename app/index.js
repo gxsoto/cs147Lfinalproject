@@ -11,6 +11,7 @@ import {
 import { Link } from "expo-router/";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import TryAgain from "../assets/TryAgain";
 import EventSquare from "../assets/EventSquare";
 import SampleComp from "../assets/SampleComp";
 import { Ionicons } from "@expo/vector-icons";
@@ -30,14 +31,19 @@ export default function App() {
       )
       .then((response) => {
         // handle success
-        setEvent(response.data._embedded.events);
-        //console.log(events);
-        //console.log(cityName);
-        // console.log(response.data._embedded.events);
-        copyEvents = response.data._embedded.events;
-        for (i in copyEvents) {
-          //console.log(copyEvents[i].images[0].url);
+        console.log(response.data);
+        if (response.data.page.totalElements == "0") {
+          setEvent(null);
+          console.log(events);
+        } else {
+          setEvent(response.data._embedded.events);
         }
+        //console.log(cityName);
+        //console.log(response.data._embedded.events);
+        // copyEvents = response.data._embedded.events;
+        // for (i in copyEvents) {
+        //   //console.log(copyEvents[i].images[0].url);
+        // }
       })
       .catch(function (error) {
         // handle error
@@ -64,6 +70,8 @@ export default function App() {
         )}
       />
     );
+  } else {
+    contentDisplayed = <TryAgain />;
   }
 
   return (

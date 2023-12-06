@@ -13,11 +13,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import TryAgain from "../assets/TryAgain";
 import EventSquare from "../assets/EventSquare";
-import SampleComp from "../assets/SampleComp";
 import { Ionicons } from "@expo/vector-icons";
 import { Pressable } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { SafeAreaView } from "react-native";
 export default function App() {
   const [events, setEvent] = useState(null);
   const [cityName, setCityName] = useState("San Francisco");
@@ -38,12 +36,6 @@ export default function App() {
         } else {
           setEvent(response.data._embedded.events);
         }
-        //console.log(cityName);
-        //console.log(response.data._embedded.events);
-        // copyEvents = response.data._embedded.events;
-        // for (i in copyEvents) {
-        //   //console.log(copyEvents[i].images[0].url);
-        // }
       })
       .catch(function (error) {
         // handle error
@@ -87,7 +79,6 @@ export default function App() {
               style={styles.input}
               onChangeText={(newText) => setTyped(newText)}
               placeholder="Input a city name"
-              keyboardType="numeric"
             />
             <Pressable onPress={() => setCityName(typed)}>
               <View>

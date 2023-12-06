@@ -1,16 +1,91 @@
-import { StyleSheet, View, Text, Button, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  Pressable,
+  Platform,
+} from "react-native";
 import * as React from "react";
+import * as ImagePicker from "expo-image-picker";
 import { router, Stack, Link } from "expo-router";
 import { Avatar } from "@rneui/themed";
 import { useState, useEffect } from "react";
 import { TextInput } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const userProfileView = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [birthday, setBirthday] = useState("");
+  const [image, setImage] = useState(
+    "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg"
+  );
 
-  /* Code below that reroutes to parent screen with updated state variables was implemented through the help of this StackOverflow post: https://stackoverflow.com/questions/76183937/passing-params-with-router-back */
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+  };
+
+  useEffect(() => {
+    const loadName2 = async () => {
+      const name = await AsyncStorage.getItem("name2");
+      setName(name);
+    };
+    loadName2();
+  }, []);
+
+  useEffect(() => {
+    const loadBday2 = async () => {
+      const birthday = await AsyncStorage.getItem("birthday2");
+      setBirthday(birthday);
+    };
+    loadBday2();
+  }, []);
+
+  useEffect(() => {
+    const loadInterests2 = async () => {
+      const interests = await AsyncStorage.getItem("interests2");
+      setDescription(interests);
+    };
+    loadInterests2();
+  }, []);
+
+  useEffect(() => {
+    const loadImage2 = async () => {
+      const image = await AsyncStorage.getItem("image2");
+      setImage(image);
+    };
+    loadImage2();
+  }, []);
+
+  useEffect(() => {
+    const saveData2 = async () => {
+      try {
+        await AsyncStorage.setItem("name2", name);
+        await AsyncStorage.setItem("birthday2", birthday);
+        await AsyncStorage.setItem("interests2", description);
+        await AsyncStorage.setItem("image2", image);
+        console.log("save successful");
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    saveData2();
+  }, [name, description, image, birthday]);
+
+  /* Code below that reroutes to parent screen with updated state variables was implemented through the help of this StackOverflow post suggested by Peng: https://stackoverflow.com/questions/76183937/passing-params-with-router-back */
   return (
     <View style={styles.container}>
       <Stack.Screen
@@ -32,10 +107,10 @@ const userProfileView = () => {
             size="xlarge"
             rounded
             source={{
-              uri: "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg",
+              uri: image,
             }}
           >
-            <Avatar.Accessory size={35} />
+            <Avatar.Accessory size={35} onPress={pickImage} />
           </Avatar>
         </View>
       </View>
@@ -85,6 +160,7 @@ const userProfileView = () => {
                 name: name,
                 birthday: birthday,
                 description: description,
+                image: image,
               },
             });
           }}

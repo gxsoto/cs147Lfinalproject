@@ -13,6 +13,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Avatar } from "@rneui/themed";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Themes } from "../assets/Themes";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -115,7 +116,11 @@ const userState = () => {
           </View>
           <View style={styles.userName}>
             <View style={styles.nameheader}>
-              <FontAwesome name="birthday-cake" size={24} color="#739072" />
+              <FontAwesome
+                name="birthday-cake"
+                size={24}
+                color={Themes.colors.lightShade}
+              />
               <View style={styles.textContainer}>
                 <Text style={styles.nameTextBirthday}>Birthday:</Text>
               </View>
@@ -124,7 +129,11 @@ const userState = () => {
           </View>
           <View style={styles.userName}>
             <View style={styles.nameheader}>
-              <FontAwesome name="heart" size={24} color="#4F6F52" />
+              <FontAwesome
+                name="heart"
+                size={24}
+                color={Themes.colors.medShade}
+              />
               <View style={styles.textContainer}>
                 <Text style={styles.nameTextInterests}>Interests:</Text>
               </View>
@@ -133,7 +142,11 @@ const userState = () => {
           </View>
           <View style={styles.userName}>
             <View style={styles.nameheader}>
-              <FontAwesome5 name="transgender-alt" size={24} color="#3A4D39" />
+              <FontAwesome5
+                name="transgender-alt"
+                size={24}
+                color={Themes.colors.darkShade}
+              />
               <View style={styles.textContainer}>
                 <Text style={styles.nameTextIdentity}>Identity:</Text>
               </View>
@@ -171,7 +184,7 @@ const styles = StyleSheet.create({
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     alignContent: "center",
     justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
-    backgroundColor: "#EDE4E0",
+    backgroundColor: Themes.colors.background,
     padding: 8,
     paddingHorizontal: 40,
     borderColor: "red",
@@ -252,17 +265,17 @@ const styles = StyleSheet.create({
   nameTextBirthday: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#739072",
+    color: Themes.colors.lightShade,
   },
   nameTextIdentity: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#3A4D39",
+    color: Themes.colors.darkShade,
   },
   nameTextInterests: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#4F6F52",
+    color: Themes.colors.medShade,
   },
   nameText: {
     color: "#665A48",

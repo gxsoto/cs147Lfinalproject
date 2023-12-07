@@ -11,6 +11,7 @@ import * as React from "react";
 import { Stack, Link, useLocalSearchParams } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import { Themes } from "../assets/Themes";
 
 const eventDescriptionView = () => {
   const params = useLocalSearchParams();
@@ -73,7 +74,11 @@ const eventDescriptionView = () => {
         <Link href={{ pathname: "/otherUserProfileView" }} asChild>
           <Pressable>
             <View style={styles.randomUser}>
-              <Ionicons name="person-circle-sharp" size={40} color="plum" />
+              <Ionicons
+                name="person-circle-sharp"
+                size={40}
+                color={Themes.colors.purple}
+              />
               <Text style={styles.userName}> User 1</Text>
             </View>
           </Pressable>
@@ -81,14 +86,22 @@ const eventDescriptionView = () => {
         <Link href={{ pathname: "/otherUserProfileView" }}>
           <Pressable>
             <View style={styles.randomUser}>
-              <Ionicons name="person-circle-sharp" size={40} color="plum" />
+              <Ionicons
+                name="person-circle-sharp"
+                size={40}
+                color={Themes.colors.purple}
+              />
               <Text style={styles.userName}> User 2</Text>
             </View>
           </Pressable>
         </Link>
         <Pressable>
           <View style={styles.randomUser}>
-            <Ionicons name="person-circle-sharp" size={40} color="plum" />
+            <Ionicons
+              name="person-circle-sharp"
+              size={40}
+              color={Themes.colors.purple}
+            />
             <Text style={styles.userName}> User 3</Text>
           </View>
         </Pressable>
@@ -107,7 +120,7 @@ const styles = StyleSheet.create({
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     //justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
-    backgroundColor: "#ecf0f1",
+    backgroundColor: Themes.colors.background,
     padding: 8,
   },
   /*

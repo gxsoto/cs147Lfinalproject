@@ -4,6 +4,7 @@ import { Stack, Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { Themes } from "../assets/Themes";
 const otherUserProfileView = () => {
   return (
     <View style={styles.container}>
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     justifyContent: "space-around", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
-    backgroundColor: "#ecf0f1",
+    backgroundColor: Themes.colors.background,
     padding: 8,
     borderColor: "green",
     borderWidth: 5,
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
   userPicContainer: {
     width: "100%",
     height: "30%",
-    backgroundColor: "plum",
+    backgroundColor: Themes.colors.purple,
     alignItems: "center",
     justifyContent: "space-around",
     borderRadius: 20,
@@ -110,6 +111,8 @@ const styles = StyleSheet.create({
   aboutMeContainer: {
     width: "100%",
     height: "25%",
+    borderColor: "yellow",
+    borderWidth: 5,
   },
   messageBox: {
     //justifyContent: "flex-end",

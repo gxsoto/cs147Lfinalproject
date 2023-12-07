@@ -2,6 +2,7 @@ import { StyleSheet, View, Dimensions, Text } from "react-native";
 import * as React from "react";
 import { Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { Themes } from "../assets/Themes";
 
 const chatView = () => {
   return (
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     //justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
-    backgroundColor: "#ecf0f1",
+    backgroundColor: Themes.colors.background,
     padding: 8,
   },
   paragraph: {
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    borderColor: "plum",
+    borderColor: Themes.colors.purple,
     borderWidth: 5,
   },
   leftMessage: {

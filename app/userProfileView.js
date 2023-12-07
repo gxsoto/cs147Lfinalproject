@@ -13,6 +13,7 @@ import { Avatar } from "@rneui/themed";
 import { useState, useEffect } from "react";
 import { TextInput } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Themes } from "../assets/Themes";
 
 const userProfileView = () => {
   const [name, setName] = useState("");
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     justifyContent: "flex-start", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
-    backgroundColor: "#ecf0f1",
+    backgroundColor: Themes.colors.background,
     padding: 8,
   },
   paragraph: {

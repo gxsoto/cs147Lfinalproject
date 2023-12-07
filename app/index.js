@@ -16,6 +16,7 @@ import EventSquare from "../assets/EventSquare";
 import { Ionicons } from "@expo/vector-icons";
 import { Pressable } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Themes } from "../assets/Themes";
 export default function App() {
   const [events, setEvent] = useState(null);
   const [cityName, setCityName] = useState("San Francisco");
@@ -72,7 +73,11 @@ export default function App() {
       <View style={styles.header}>
         <View style={styles.headerTop}>
           <Link href={{ pathname: "/userState" }}>
-            <Ionicons name="person-circle-sharp" size={40} color="plum" />
+            <Ionicons
+              name="person-circle-sharp"
+              size={40}
+              color={Themes.colors.purple}
+            />
           </Link>
           <View style={styles.search}>
             <TextInput
@@ -116,8 +121,9 @@ const styles = StyleSheet.create({
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
-    backgroundColor: "#FFFAF0",
+    //backgroundColor: "#FFFAF0",
     //backgroundColor: "#696969",
+    backgroundColor: Themes.colors.background,
     padding: 10,
     //width: "100%",
   },
@@ -147,9 +153,9 @@ const styles = StyleSheet.create({
     height: "85%",
     //width: "90%",
     borderWidth: 10,
-    borderColor: "plum",
+    borderColor: Themes.colors.purple,
     borderRadius: 10,
-    backgroundColor: "plum",
+    backgroundColor: Themes.colors.purple,
     //justifyContent: "space-around",
     flexDirection: "row",
     alignItems: "center",

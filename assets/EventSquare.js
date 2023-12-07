@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
+import { Themes } from "./Themes";
+
 import { Link } from "expo-router";
 //import { SafeAreaView } from "react-native-safe-area-context";
 

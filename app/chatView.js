@@ -4,6 +4,9 @@ import { Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Themes } from "../assets/Themes";
 
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
+
 const chatView = () => {
   return (
     <View style={styles.container}>
@@ -25,7 +28,25 @@ const chatView = () => {
         <Text style={styles.paragraph}>User Name</Text>
       </View>
 
-      <View style={styles.leftMessage}></View>
+      <View
+        style={{
+          flexDirection: "row",
+          marginRight: windowWidth * 0.3,
+          //width: "100%",
+        }}
+      >
+        <View style={styles.messageBox}></View>
+      </View>
+      <View
+        style={{
+          flexDirection: "row",
+          marginLeft: windowWidth * 0.3,
+          marginTop: 10,
+          //width: "100%",
+        }}
+      >
+        <View style={styles.messageBox}></View>
+      </View>
     </View>
   );
 };
@@ -40,6 +61,8 @@ const styles = StyleSheet.create({
     //justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
     padding: 8,
+    borderColor: "red",
+    borderWidth: 5,
   },
   paragraph: {
     fontSize: 20,
@@ -53,11 +76,11 @@ const styles = StyleSheet.create({
     borderColor: Themes.colors.purple,
     borderWidth: 5,
   },
-  leftMessage: {
+  messageBox: {
     //alignItems: "flex-end",
     //justifyContent: "flex-end",
-    width: "60%",
-    height: "10%",
+    width: "100%",
+    height: 80,
     borderColor: "green",
     borderWidth: 5,
   },

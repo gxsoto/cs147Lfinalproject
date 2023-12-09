@@ -1,12 +1,13 @@
-import { StyleSheet, View, Alert } from "react-native";
+import { StyleSheet, View, Alert, Image, Text } from "react-native";
 import { Stack, Link, useLocalSearchParams } from "expo-router";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, Callout } from "react-native-maps";
 import React, { useState, useEffect } from "react";
 import { PROVIDER_GOOGLE } from "react-native-maps";
 
 const mapView = () => {
   /* code below genereated from the ExpoGo MapView Docs to locate a user found here: https://github.com/react-native-maps/react-native-maps 
-    and here (props list): https://github.com/react-native-maps/react-native-maps/blob/master/docs/mapview.md  */
+    and here (props list): https://github.com/react-native-maps/react-native-maps/blob/master/docs/mapview.md 
+    This guide was also helpful to getting started with working with the callout component: https://blog.spirokit.com/maps-in-react-native-adding-interactive-markers  */
   const markers = [];
   const params = useLocalSearchParams();
   console.log("this is in map view");
@@ -21,12 +22,22 @@ const mapView = () => {
       const lat = info[1];
       const long = info[0];
       const eventName = info[2];
+      const eventPic = info[3];
       const marker = (
-        <Marker
-          key={i}
-          coordinate={{ latitude: lat, longitude: long }}
-          title={eventName}
-        />
+        <Marker key={i} coordinate={{ latitude: lat, longitude: long }}>
+          <Callout tooltip={true}>
+            <View style={styles.info}>
+              <View style={styles.top}>
+                <Image style={styles.eventImage} source={{ uri: eventPic }} />
+              </View>
+              <View style={styles.bottom}>
+                <Text style={styles.text} numberOfLines={2}>
+                  {eventName}
+                </Text>
+              </View>
+            </View>
+          </Callout>
+        </Marker>
       );
       markers.push(marker);
     }
@@ -40,25 +51,6 @@ const mapView = () => {
       [{ text: "OK", onPress: () => console.log("OK Pressed") }]
     );
   };
-
-  // let parsedPortions = params.string.split(";");
-  // console.log(parsedPortions);
-
-  // for (let i = 0; i < parsedPortions.length - 1; i++) {
-  //   let info = parsedPortions[i].split(",");
-  //   const lat = info[1];
-  //   const long = info[0];
-  //   const eventName = info[2];
-  //   const marker = (
-  //     <Marker
-  //       key={i}
-  //       coordinate={{ latitude: lat, longitude: long }}
-  //       title={eventName}
-  //     />
-  //   );
-  //   markers.push(marker);
-  // }
-  // console.log(markers);
 
   if (params.string) {
     makeMarkers();
@@ -105,5 +97,36 @@ const styles = StyleSheet.create({
   map: {
     width: "100%",
     height: "100%",
+  },
+  info: {
+    padding: 5,
+    backgroundColor: "white",
+    width: 150,
+    height: 100,
+    flexDirection: "column",
+    borderColor: "gray",
+    borderWidth: 5,
+  },
+  top: {
+    height: "60%",
+    width: "100%",
+    justifyContent: "center",
+    alignContent: "center",
+  },
+  bottom: {
+    height: "40%",
+    width: "100%",
+    justifyContent: "center",
+    alignContent: "center",
+  },
+  eventImage: {
+    resizeMode: "contain",
+    height: "100%",
+    width: "100%",
+  },
+  text: {
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 12,
   },
 });

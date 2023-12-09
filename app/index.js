@@ -48,6 +48,8 @@ export default function App() {
               copyEvents[i]._embedded.venues[0].location.latitude;
             stringOfCoords += ",";
             stringOfCoords += copyEvents[i].name;
+            stringOfCoords += ",";
+            stringOfCoords += copyEvents[i].images[0].url;
             stringOfCoords += ";";
             console.log(stringOfCoords);
           }

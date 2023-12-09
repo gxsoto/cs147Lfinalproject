@@ -21,11 +21,13 @@ export default function App() {
   const [events, setEvent] = useState(null);
   const [cityName, setCityName] = useState("San Francisco");
   const [typed, setTyped] = useState("");
+  const [string, setString] = useState("");
+  let stringOfCoords = "";
 
   const getEvents = () => {
     axios
       .get(
-        "https://app.ticketmaster.com/discovery/v2/events.json?&apikey=0Q3pmWZ89wGOA7q25AdnFk7CGmkuZ0iA",
+        "https://app.ticketmaster.com/discovery/v2/events.json?&apikey=0Q3pmWZ89wGOA7q25AdnFk7CGmkuZ0iA&locale=*&size=30",
         { params: { city: cityName } }
       )
       .then((response) => {
@@ -33,9 +35,23 @@ export default function App() {
         console.log(response.data);
         if (response.data.page.totalElements == "0") {
           setEvent(null);
-          console.log(events);
+          //console.log(events);
         } else {
           setEvent(response.data._embedded.events);
+          stringOfCoords = "";
+          copyEvents = response.data._embedded.events;
+          for (i in copyEvents) {
+            stringOfCoords +=
+              copyEvents[i]._embedded.venues[0].location.longitude;
+            stringOfCoords += ",";
+            stringOfCoords +=
+              copyEvents[i]._embedded.venues[0].location.latitude;
+            stringOfCoords += ",";
+            stringOfCoords += copyEvents[i].name;
+            stringOfCoords += ";";
+            console.log(stringOfCoords);
+          }
+          setString(stringOfCoords);
         }
       })
       .catch(function (error) {
@@ -93,7 +109,7 @@ export default function App() {
           </View>
         </View>
         <View style={styles.locateContainer}>
-          <Link href={{ pathname: "/mapView" }}>
+          <Link href={{ pathname: "/mapView", params: { string: string } }}>
             <MaterialCommunityIcons
               name="map-marker-question"
               size={20}

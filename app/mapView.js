@@ -2,6 +2,7 @@ import { StyleSheet, View, Alert, Image, Text } from "react-native";
 import { Stack, Link, useLocalSearchParams } from "expo-router";
 import MapView, { Marker, Callout } from "react-native-maps";
 import React, { useState, useEffect } from "react";
+import { Ionicons } from "@expo/vector-icons";
 import { PROVIDER_GOOGLE } from "react-native-maps";
 
 const mapView = () => {
@@ -18,11 +19,13 @@ const mapView = () => {
     console.log(parsedPortions);
 
     for (let i = 0; i < parsedPortions.length - 1; i++) {
-      let info = parsedPortions[i].split(",");
+      let info = parsedPortions[i].split("$");
       const lat = info[1];
       const long = info[0];
       const eventName = info[2];
       const eventPic = info[3];
+      const eventDate = info[4];
+      const eventTime = info[5];
       const marker = (
         <Marker key={i} coordinate={{ latitude: lat, longitude: long }}>
           <Callout tooltip={true}>
@@ -31,9 +34,21 @@ const mapView = () => {
                 <Image style={styles.eventImage} source={{ uri: eventPic }} />
               </View>
               <View style={styles.bottom}>
-                <Text style={styles.text} numberOfLines={2}>
-                  {eventName}
-                </Text>
+                <View style={styles.bottomTop}>
+                  <Text style={styles.text} numberOfLines={2}>
+                    {eventName}
+                  </Text>
+                </View>
+                <View style={styles.bottomBottom}>
+                  <View style={styles.time}>
+                    <Ionicons name="time-sharp" size={10} color="black" />
+                    <Text style={styles.descriptionText}>{eventTime}</Text>
+                  </View>
+                  <View style={styles.date}>
+                    <Ionicons name="today" size={10} color="black" />
+                    <Text style={styles.descriptionText}>{eventDate}</Text>
+                  </View>
+                </View>
               </View>
             </View>
           </Callout>
@@ -102,31 +117,59 @@ const styles = StyleSheet.create({
     padding: 5,
     backgroundColor: "white",
     width: 150,
-    height: 100,
+    height: 200,
     flexDirection: "column",
     borderColor: "gray",
-    borderWidth: 5,
+    borderWidth: 2,
+    borderRadius: 10,
+    marginBottom: 10,
   },
   top: {
-    height: "60%",
+    height: "50%",
     width: "100%",
     justifyContent: "center",
     alignContent: "center",
   },
   bottom: {
-    height: "40%",
+    height: "50%",
     width: "100%",
     justifyContent: "center",
     alignContent: "center",
+    borderColor: "red",
+    borderWidth: 5,
   },
   eventImage: {
     resizeMode: "contain",
     height: "100%",
     width: "100%",
+    borderRadius: 10,
   },
   text: {
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 12,
+  },
+  bottomBottom: {
+    flex: 1,
+    borderColor: "yellow",
+    borderWidth: 5,
+  },
+  bottomTop: {
+    flex: 1,
+    borderColor: "green",
+    borderWidth: 5,
+  },
+  descriptionText: {
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 10,
+  },
+  time: {
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+  date: {
+    justifyContent: "center",
+    flexDirection: "row",
   },
 });

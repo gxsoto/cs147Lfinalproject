@@ -43,15 +43,19 @@ export default function App() {
           for (i in copyEvents) {
             stringOfCoords +=
               copyEvents[i]._embedded.venues[0].location.longitude;
-            stringOfCoords += ",";
+            stringOfCoords += "$";
             stringOfCoords +=
               copyEvents[i]._embedded.venues[0].location.latitude;
-            stringOfCoords += ",";
+            stringOfCoords += "$";
             stringOfCoords += copyEvents[i].name;
-            stringOfCoords += ",";
+            stringOfCoords += "$";
             stringOfCoords += copyEvents[i].images[0].url;
+            stringOfCoords += "$";
+            stringOfCoords += copyEvents[i].dates.start.localDate;
+            stringOfCoords += "$";
+            stringOfCoords += copyEvents[i].dates.start.localTime;
             stringOfCoords += ";";
-            console.log(stringOfCoords);
+            //console.log(stringOfCoords);
           }
           setString(stringOfCoords);
         }

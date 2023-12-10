@@ -81,25 +81,56 @@ const userState = () => {
   useEffect(() => {
     const saveData = async () => {
       try {
-        await AsyncStorage.setItem("userName", params.name);
-        await AsyncStorage.setItem("userBday", params.birthday);
-        await AsyncStorage.setItem("userInterests", params.description);
-        await AsyncStorage.setItem("userImage", params.image);
-        await AsyncStorage.setItem("userIdentity", params.identity);
-        await AsyncStorage.setItem("userAboutMe", params.aboutMe);
-        setCopyImage(params.image);
-        setCopyName(params.name);
-        setCopyBday(params.birthday);
-        setCopyDes(params.description);
-        setCopyAbout(params.aboutMe);
-        setCopyIdentity(params.identity);
+        if (params.name) {
+          await AsyncStorage.setItem("userName", params.name);
+          setCopyName(params.name);
+        }
+        if (params.birthday) {
+          await AsyncStorage.setItem("userBday", params.birthday);
+          setCopyBday(params.birthday);
+        }
+        if (params.description) {
+          await AsyncStorage.setItem("userInterests", params.description);
+          setCopyDes(params.description);
+        }
+        if (params.image) {
+          await AsyncStorage.setItem("userImage", params.image);
+          setCopyImage(params.image);
+        }
+        if (params.identity) {
+          await AsyncStorage.setItem("userIdentity", params.identity);
+          setCopyIdentity(params.identity);
+        }
+        if (params.aboutMe) {
+          await AsyncStorage.setItem("userAboutMe", params.aboutMe);
+          setCopyAbout(params.aboutMe);
+        }
+        //await AsyncStorage.setItem("userName", params.name);
+        //await AsyncStorage.setItem("userBday", params.birthday);
+        //await AsyncStorage.setItem("userInterests", params.description);
+        //await AsyncStorage.setItem("userImage", params.image);
+        //await AsyncStorage.setItem("userIdentity", params.identity);
+        //await AsyncStorage.setItem("userAboutMe", params.aboutMe);
+        //setCopyImage(params.image);
+        //setCopyName(params.name);
+        // setCopyBday(params.birthday);
+        // setCopyDes(params.description);
+        //setCopyAbout(params.aboutMe);
+        //setCopyIdentity(params.identity);
         console.log("save successful");
       } catch (error) {
         console.error(error);
       }
     };
     saveData();
-  }, [params.name, params.birthday, params.description, params.image]);
+  }, [
+    params.name,
+    params.birthday,
+    params.description,
+    params.image,
+    params.identity,
+    params.aboutMe,
+  ]);
 
   return (
     <View style={styles.container}>

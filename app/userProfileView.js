@@ -92,11 +92,29 @@ const userProfileView = () => {
   useEffect(() => {
     const saveData2 = async () => {
       try {
-        await AsyncStorage.setItem("name2", name);
-        await AsyncStorage.setItem("birthday2", birthday);
-        await AsyncStorage.setItem("interests2", description);
-        await AsyncStorage.setItem("image2", image);
-        await AsyncStorage.setItem("about2", aboutMe);
+        if (name) {
+          await AsyncStorage.setItem("name2", name);
+        }
+        if (birthday) {
+          await AsyncStorage.setItem("birthday2", birthday);
+        }
+        if (description) {
+          await AsyncStorage.setItem("interests2", description);
+        }
+        if (image) {
+          await AsyncStorage.setItem("image2", image);
+        }
+        if (aboutMe) {
+          await AsyncStorage.setItem("about2", aboutMe);
+        }
+        if (identity) {
+          await AsyncStorage.setItem("identity2", identity);
+        }
+        //await AsyncStorage.setItem("name2", name);
+        //await AsyncStorage.setItem("birthday2", birthday);
+        //await AsyncStorage.setItem("interests2", description);
+        //await AsyncStorage.setItem("image2", image);
+        //await AsyncStorage.setItem("about2", aboutMe);
         await AsyncStorage.setItem("identity2", identity);
         console.log("save successful");
       } catch (error) {

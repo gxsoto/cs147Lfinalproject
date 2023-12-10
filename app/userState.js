@@ -155,10 +155,6 @@ const userState = () => {
           </View>
         </View>
       </View>
-      <Text>
-        NAME: {copyName} BDAY:
-        {copyBday} INTERESTS: {copyDescription}
-      </Text>
 
       <View styles={styles.editButton}>
         <Pressable
@@ -187,18 +183,18 @@ const styles = StyleSheet.create({
     backgroundColor: Themes.colors.background,
     padding: 8,
     paddingHorizontal: 40,
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
   },
   smallerContainer: {
-    borderColor: "purple",
-    borderWidth: 5,
+    //borderColor: "purple",
+    //borderWidth: 5,
     width: "100%",
     height: "70%",
   },
   info: {
-    borderColor: "orange",
-    borderWidth: 5,
+    //borderColor: "orange",
+    //borderWidth: 5,
     width: "100%",
     justifyContent: "space-around",
     height: "70%",
@@ -211,8 +207,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   editButton: {
-    borderColor: "orange",
-    borderWidth: 5,
+    //borderColor: "orange",
+    //borderWidth: 5,
     height: "40%",
     width: "100%",
   },
@@ -221,12 +217,12 @@ const styles = StyleSheet.create({
     color: "gray",
   },
   button: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
   },
   userHeader: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "30%",
     width: "100%",
     alignItems: "center",
@@ -237,8 +233,8 @@ const styles = StyleSheet.create({
     // borderWidth: 5,
   },
   userName: {
-    borderColor: "green",
-    borderWidth: 5,
+    // borderColor: "green",
+    //borderWidth: 5,
     backgroundColor: "#ECE3CE",
     borderRadius: 20,
     height: "25%",

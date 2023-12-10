@@ -2,6 +2,7 @@ import { StyleSheet, View, Dimensions, Text } from "react-native";
 import * as React from "react";
 import { WebView } from "react-native-webview";
 import { Stack, useLocalSearchParams } from "expo-router";
+import { Themes } from "../assets/Themes";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -12,14 +13,14 @@ const eventWebView = () => {
     <View style={styles.container}>
       <Stack.Screen
         options={{
-          title: "Event's Website",
-          headerTintColor: "red", // this is how to change the color of the back arrow
+          title: "Website",
+          headerTintColor: Themes.colors.header, // this is how to change the color of the back arrow
           headerStyle: {
-            backgroundColor: "white",
+            backgroundColor: Themes.colors.boxBackground,
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            color: "red",
+            color: Themes.colors.header,
           },
         }}
       />

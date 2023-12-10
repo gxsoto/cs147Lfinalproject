@@ -83,7 +83,7 @@ const eventDescriptionView = () => {
             </View>
           </Pressable>
         </Link>
-        <Link href={{ pathname: "/otherUserProfileView" }}>
+        <Link href={{ pathname: "/otherUserProfileView" }} asChild>
           <Pressable>
             <View style={styles.randomUser}>
               <Ionicons
@@ -95,16 +95,18 @@ const eventDescriptionView = () => {
             </View>
           </Pressable>
         </Link>
-        <Pressable>
-          <View style={styles.randomUser}>
-            <Ionicons
-              name="person-circle-sharp"
-              size={40}
-              color={Themes.colors.darkShade}
-            />
-            <Text style={styles.userName}> User 3</Text>
-          </View>
-        </Pressable>
+        <Link href={{ pathname: "/otherUserProfileView" }} asChild>
+          <Pressable>
+            <View style={styles.randomUser}>
+              <Ionicons
+                name="person-circle-sharp"
+                size={40}
+                color={Themes.colors.darkShade}
+              />
+              <Text style={styles.userName}> User 3</Text>
+            </View>
+          </Pressable>
+        </Link>
       </View>
     </View>
 

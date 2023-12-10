@@ -1,4 +1,4 @@
-import { StyleSheet, View, Dimensions, Text } from "react-native";
+import { StyleSheet, View, Dimensions, Text, SafeAreaView } from "react-native";
 import * as React from "react";
 import { Stack, Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
@@ -7,7 +7,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Themes } from "../assets/Themes";
 const otherUserProfileView = () => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Stack.Screen
         options={{
           title: "Another User's Profile",
@@ -22,25 +22,43 @@ const otherUserProfileView = () => {
         }}
       />
       <View style={styles.userPicContainer}>
-        <Ionicons name="person-circle-sharp" size={200} color="black" />
+        <Ionicons
+          name="person-circle-sharp"
+          size={200}
+          color={Themes.colors.darkShade}
+        />
         <Text style={styles.header}> User Name</Text>
       </View>
       <Text style={styles.header}> User Info</Text>
-      <View style={styles.userDetails}>
-        <FontAwesome name="birthday-cake" size={24} color="black" />
-        <Text style={styles.paragraph}>Birthday: </Text>
-      </View>
-      <View style={styles.userDetails}>
-        <FontAwesome5 name="transgender-alt" size={24} color="black" />
-        <Text style={styles.paragraph}>Identity: </Text>
-      </View>
-      <View style={styles.userDetails}>
-        <Ionicons name="location-sharp" size={24} color="black" />
-        <Text style={styles.paragraph}>Distance: </Text>
-      </View>
-      <View style={styles.userDetails}>
-        <FontAwesome name="heart" size={24} color="black" />
-        <Text style={styles.paragraph}>Interests: </Text>
+      <View style={styles.userInfo}>
+        <View style={styles.userDetails}>
+          <FontAwesome
+            name="birthday-cake"
+            size={24}
+            color={Themes.colors.darkShade}
+          />
+          <Text style={styles.paragraph}>Birthday: </Text>
+        </View>
+        <View style={styles.userDetails}>
+          <FontAwesome5
+            name="transgender-alt"
+            size={24}
+            color={Themes.colors.darkShade}
+          />
+          <Text style={styles.paragraph}>Identity: </Text>
+        </View>
+        <View style={styles.userDetails}>
+          <Ionicons
+            name="location-sharp"
+            size={24}
+            color={Themes.colors.darkShade}
+          />
+          <Text style={styles.paragraph}>Distance: </Text>
+        </View>
+        <View style={styles.userDetails}>
+          <FontAwesome name="heart" size={24} color={Themes.colors.darkShade} />
+          <Text style={styles.paragraph}>Interests: </Text>
+        </View>
       </View>
       <Text style={styles.header}> About Me</Text>
 
@@ -52,11 +70,15 @@ const otherUserProfileView = () => {
 
       <View style={styles.messageBox}>
         <Link href="/chatView">
-          <Ionicons name="chatbox-ellipses" size={24} color="black" />
+          <Ionicons
+            name="chatbox-ellipses"
+            size={24}
+            color={Themes.colors.darkShade}
+          />
           <Text style={styles.linkText}>Chat with User</Text>
         </Link>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -85,28 +107,47 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",
+    color: Themes.colors.darkShade,
   },
   userPicContainer: {
     width: "100%",
     height: "30%",
-    backgroundColor: Themes.colors.purple,
+    backgroundColor: Themes.colors.boxBackground,
     alignItems: "center",
     justifyContent: "space-around",
-    borderRadius: 20,
+    borderRadius: 10,
+    borderColor: Themes.colors.lightShade,
+    borderWidth: 5,
+    padding: 5,
   },
   paragraph: {
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
+    color: Themes.colors.darkShade,
   },
   linkText: {
     fontSize: 16,
     textAlign: "center",
+    color: Themes.colors.darkShade,
+  },
+  userInfo: {
+    height: "25%",
+    width: "100%",
+    justifyContent: "space-around",
+    borderWidth: 5,
+    borderColor: Themes.colors.lightShade,
+    backgroundColor: Themes.colors.boxBackground,
+    borderRadius: 10,
+    padding: 5,
   },
   userDetails: {
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
+    //borderWidth: 2,
+    //borderColor: "red",
+    //paddingHorizontal: 5,
   },
   aboutMeContainer: {
     width: "100%",
@@ -118,5 +159,6 @@ const styles = StyleSheet.create({
     //justifyContent: "flex-end",
     borderColor: "yellow",
     borderWidth: 5,
+    alignItems: "center",
   },
 });

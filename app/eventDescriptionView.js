@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     //justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
     padding: 10,
+    //width: "99%",
   },
   /*
   biggerContainer: {
@@ -144,8 +145,8 @@ const styles = StyleSheet.create({
   descriptionContainer: {
     width: "100%",
     height: "25%",
-    padding: 20,
-    justifyContent: "space-between",
+    padding: 5,
+    justifyContent: "space-around",
     borderColor: Themes.colors.lightShade,
     borderWidth: 5,
     borderRadius: 20,
@@ -165,9 +166,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     //textAlign: "center",
     color: "blue",
-  },
-  seal: {
-    fontSize: 40,
   },
   eventImageContainer: {
     height: "35%",
@@ -197,18 +195,20 @@ const styles = StyleSheet.create({
   goingContainer: {
     width: "100%",
     alignItems: "flex-start",
-    justifyContent: "flex-start",
+    justifyContent: "space-around",
     borderColor: Themes.colors.lightShade,
     borderWidth: 5,
     borderRadius: 20,
     backgroundColor: Themes.colors.boxBackground,
+    padding: 5,
+    //marginHorizontal: 10,
   },
   randomUser: {
     width: "100%",
     alignItems: "center",
     //justifyContent: "flex-start",
-    borderColor: "yellow",
-    borderWidth: 5,
+    //borderColor: "yellow",
+    //borderWidth: 5,
     flexDirection: "row",
     //textAlign: "center",
   },

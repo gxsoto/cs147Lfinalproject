@@ -32,14 +32,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: "100%",
     width: "100%",
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
   },
   smallerContainer: {
     alignItems: "center",
     justifyContent: "center",
-    borderColor: "orange",
-    borderWidth: 5,
+    //borderColor: "orange",
+    //borderWidth: 5,
     width: "60%",
   },
   text: {

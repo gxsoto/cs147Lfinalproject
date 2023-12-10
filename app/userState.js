@@ -21,12 +21,14 @@ const windowHeight = Dimensions.get("window").height;
 const userState = () => {
   //define useState here
   const params = useLocalSearchParams();
-  const [copyName, setCopyName] = useState("");
-  const [copyBday, setCopyBday] = useState("");
-  const [copyDescription, setCopyDes] = useState("");
-  const [copyImage, setCopyImage] = useState("");
-  const [copyIdentity, setCopyIdentity] = useState("");
-  const [copyAbout, setCopyAbout] = useState("");
+  const [copyName, setCopyName] = useState("Name Here");
+  const [copyBday, setCopyBday] = useState("Birthday Here");
+  const [copyDescription, setCopyDes] = useState("Interests Here");
+  const [copyImage, setCopyImage] = useState(
+    "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg"
+  );
+  const [copyIdentity, setCopyIdentity] = useState("Identity Here");
+  const [copyAbout, setCopyAbout] = useState("About Me Here");
 
   useEffect(() => {
     const loadName = async () => {
@@ -104,13 +106,13 @@ const userState = () => {
       <Stack.Screen
         options={{
           title: "Your Profile",
-          headerTintColor: "#665A48", // this is how to change the color of the back arrow
+          headerTintColor: Themes.colors.darkShade, // this is how to change the color of the back arrow
           headerStyle: {
             backgroundColor: "#ECE3CE",
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            color: "#665A48",
+            color: Themes.colors.darkShade,
           },
         }}
       />
@@ -192,7 +194,9 @@ const userState = () => {
               </View>
             </View>
             <View style={styles.nameBottom}>
-              <Text style={styles.aboutText}>{copyAbout}</Text>
+              <Text numberOfLines={2} style={styles.aboutText}>
+                {copyAbout}
+              </Text>
             </View>
           </View>
         </View>
@@ -225,12 +229,12 @@ const styles = StyleSheet.create({
     backgroundColor: Themes.colors.background,
     padding: 8,
     paddingHorizontal: 40,
-    borderColor: "purple",
-    borderWidth: 5,
+    //borderColor: "purple",
+    //orderWidth: 5,
   },
   smallerContainer: {
-    borderColor: "green",
-    borderWidth: 5,
+    //borderColor: "green",
+    //borderWidth: 5,
     width: "100%",
     height: "80%",
   },
@@ -259,7 +263,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   saveText: {
-    fontSize: 25,
+    fontSize: 23,
     color: "gray",
   },
   button: {
@@ -267,8 +271,8 @@ const styles = StyleSheet.create({
     //borderWidth: 5,
   },
   userHeader: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "30%",
     width: "100%",
     alignItems: "center",

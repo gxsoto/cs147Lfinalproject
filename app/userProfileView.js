@@ -112,13 +112,13 @@ const userProfileView = () => {
       <Stack.Screen
         options={{
           title: "Edit Profile",
-          headerTintColor: "red", // this is how to change the color of the back arrow
+          headerTintColor: Themes.colors.darkShade, // this is how to change the color of the back arrow
           headerStyle: {
-            backgroundColor: "white",
+            backgroundColor: "#ECE3CE",
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            color: "red",
+            color: Themes.colors.darkShade,
           },
         }}
       />
@@ -229,9 +229,9 @@ const styles = StyleSheet.create({
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     justifyContent: "flex-start", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
-    padding: 8,
-    borderWidth: 5,
-    borderColor: "red",
+    paddingHorizontal: 10,
+    //borderWidth: 5,
+    //borderColor: "red",
   },
   paragraph: {
     fontSize: 24,
@@ -243,18 +243,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   userHeader: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "20%",
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 5,
-    borderColor: "red",
+    //borderWidth: 5,
+    //borderColor: "red",
   },
   userCircle: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
   },
   nameText: {
     fontSize: 24,
@@ -269,14 +269,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   userName: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "10%",
     width: "100%",
   },
   userDescription: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "15%",
     width: "100%",
   },
@@ -285,8 +285,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   userBirthday: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "10%",
     width: "100%",
   },
@@ -295,31 +295,32 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   saveButton: {
-    borderColor: "orange",
-    borderWidth: 5,
+    //borderColor: "orange",
+    //borderWidth: 5,
     height: "40%",
     width: "100%",
   },
   saveText: {
-    fontSize: 25,
+    fontSize: 22,
     color: "gray",
   },
   button: {
-    borderColor: "red",
-    borderWidth: 5,
+    paddingTop: 5,
+    //borderColor: "red",
+    // borderWidth: 5,
   },
   box: {
     flex: 1,
   },
   userAboutMe: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //orderWidth: 5,
     height: "15%",
     width: "100%",
   },
   userIdentity: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "15%",
     width: "100%",
   },

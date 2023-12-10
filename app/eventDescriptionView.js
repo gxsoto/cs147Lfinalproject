@@ -17,7 +17,7 @@ const eventDescriptionView = () => {
   const params = useLocalSearchParams();
   return (
     // <SafeAreaView>
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Stack.Screen
         options={{
           title: "Event Description",
@@ -108,7 +108,7 @@ const eventDescriptionView = () => {
           </Pressable>
         </Link>
       </View>
-    </SafeAreaView>
+    </View>
 
     // </SafeAreaView>
   );
@@ -118,13 +118,15 @@ export default eventDescriptionView;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, // We'll learn about "flex" and other flexbox properties in class!
+    //flex: 1, // We'll learn about "flex" and other flexbox properties in class!
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     //justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
-    padding: 10,
-    //width: "99%",
+    paddingHorizontal: 20,
+    //width: "99%"
+    width: "100%",
+    height: "100%",
   },
   /*
   biggerContainer: {

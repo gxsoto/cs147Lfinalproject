@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: 300,
     margin: 12,
-    borderWidth: 1,
+    //borderWidth: 1,
     padding: 10,
   },
   button: {

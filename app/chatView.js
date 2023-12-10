@@ -1,4 +1,4 @@
-import { StyleSheet, View, Dimensions, Text } from "react-native";
+import { StyleSheet, View, Dimensions, Text, SafeAreaView } from "react-native";
 import * as React from "react";
 import { Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
@@ -9,7 +9,7 @@ const windowHeight = Dimensions.get("window").height;
 
 const chatView = () => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Stack.Screen
         options={{
           title: "Chat",
@@ -28,26 +28,31 @@ const chatView = () => {
         <Text style={styles.paragraph}>User Name</Text>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          marginRight: windowWidth * 0.3,
-          //width: "100%",
-        }}
-      >
+      <View style={styles.leftMessage}>
         <View style={styles.messageBox}></View>
       </View>
-      <View
-        style={{
-          flexDirection: "row",
-          marginLeft: windowWidth * 0.3,
-          marginTop: 10,
-          //width: "100%",
-        }}
-      >
+      <View style={styles.rightMessage}>
         <View style={styles.messageBox}></View>
       </View>
-    </View>
+      <View style={styles.leftMessage}>
+        <View style={styles.messageBox}></View>
+      </View>
+      <View style={styles.rightMessage}>
+        <View style={styles.messageBox}></View>
+      </View>
+      <View style={styles.leftMessage}>
+        <View style={styles.messageBox}></View>
+      </View>
+      <View style={styles.rightMessage}>
+        <View style={styles.messageBox}></View>
+      </View>
+      <View style={styles.leftMessage}>
+        <View style={styles.messageBox}></View>
+      </View>
+      <View style={styles.rightMessage}>
+        <View style={styles.messageBox}></View>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -63,6 +68,7 @@ const styles = StyleSheet.create({
     padding: 8,
     borderColor: "red",
     borderWidth: 5,
+    padding: 5,
   },
   paragraph: {
     fontSize: 20,
@@ -75,6 +81,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: Themes.colors.purple,
     borderWidth: 5,
+  },
+  leftMessage: {
+    flexDirection: "row",
+    marginRight: windowWidth * 0.3,
+    marginTop: 10,
+  },
+  rightMessage: {
+    flexDirection: "row",
+    marginLeft: windowWidth * 0.3,
+    marginTop: 10,
   },
   messageBox: {
     //alignItems: "flex-end",

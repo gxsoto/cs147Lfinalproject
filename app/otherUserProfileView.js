@@ -1,4 +1,11 @@
-import { StyleSheet, View, Dimensions, Text, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  Text,
+  SafeAreaView,
+  Pressable,
+} from "react-native";
 import * as React from "react";
 import { Stack, Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
@@ -68,16 +75,18 @@ const otherUserProfileView = () => {
         </Text>
       </View>
 
-      <View style={styles.messageBox}>
-        <Link href="/chatView">
-          <Ionicons
-            name="chatbox-ellipses"
-            size={24}
-            color={Themes.colors.darkShade}
-          />
-          <Text style={styles.linkText}>Chat with User</Text>
-        </Link>
-      </View>
+      <Link href="/chatView" asChild>
+        <Pressable>
+          <View style={styles.messageBox}>
+            <Ionicons
+              name="chatbox-ellipses"
+              size={24}
+              color={Themes.colors.darkShade}
+            />
+            <Text style={styles.linkText}>Chat with User</Text>
+          </View>
+        </Pressable>
+      </Link>
     </SafeAreaView>
   );
 };
@@ -92,8 +101,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
     padding: 8,
-    borderColor: "green",
-    borderWidth: 5,
+    //borderColor: "green",
+    //borderWidth: 5,
   },
   /*
   smallerContainer: {
@@ -152,13 +161,16 @@ const styles = StyleSheet.create({
   aboutMeContainer: {
     width: "100%",
     height: "25%",
-    borderColor: "yellow",
+    borderColor: Themes.colors.lightShade,
     borderWidth: 5,
+    borderRadius: 10,
+    backgroundColor: Themes.colors.boxBackground,
   },
   messageBox: {
     //justifyContent: "flex-end",
-    borderColor: "yellow",
-    borderWidth: 5,
+    //borderColor: "yellow",
+    //borderWidth: 5,
     alignItems: "center",
+    flexDirection: "row",
   },
 });

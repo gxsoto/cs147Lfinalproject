@@ -25,6 +25,8 @@ const userState = () => {
   const [copyBday, setCopyBday] = useState("");
   const [copyDescription, setCopyDes] = useState("");
   const [copyImage, setCopyImage] = useState("");
+  const [copyIdentity, setCopyIdentity] = useState("");
+  const [copyAbout, setCopyAbout] = useState("");
 
   useEffect(() => {
     const loadName = async () => {
@@ -59,16 +61,36 @@ const userState = () => {
   }, []);
 
   useEffect(() => {
+    const loadIdentity = async () => {
+      const identity = await AsyncStorage.getItem("userIdentity");
+      setCopyIdentity(identity);
+    };
+    loadIdentity();
+  }, []);
+
+  useEffect(() => {
+    const loadAbout = async () => {
+      const about = await AsyncStorage.getItem("userAboutMe");
+      setCopyAbout(about);
+    };
+    loadAbout();
+  }, []);
+
+  useEffect(() => {
     const saveData = async () => {
       try {
         await AsyncStorage.setItem("userName", params.name);
         await AsyncStorage.setItem("userBday", params.birthday);
         await AsyncStorage.setItem("userInterests", params.description);
         await AsyncStorage.setItem("userImage", params.image);
+        await AsyncStorage.setItem("userIdentity", params.identity);
+        await AsyncStorage.setItem("userAboutMe", params.aboutMe);
         setCopyImage(params.image);
         setCopyName(params.name);
         setCopyBday(params.birthday);
         setCopyDes(params.description);
+        setCopyAbout(params.aboutMe);
+        setCopyIdentity(params.identity);
         console.log("save successful");
       } catch (error) {
         console.error(error);
@@ -109,10 +131,12 @@ const userState = () => {
             <View style={styles.nameheader}>
               <Ionicons name="person" size={24} color="#A9B388" />
               <View style={styles.textContainer}>
-                <Text style={styles.nameTextName}>Name:</Text>
+                <Text style={styles.nameText}>Name:</Text>
               </View>
             </View>
-            <Text style={styles.nameText}>{copyName}</Text>
+            <View style={styles.nameBottom}>
+              <Text style={styles.nameText}>{copyName}</Text>
+            </View>
           </View>
           <View style={styles.userName}>
             <View style={styles.nameheader}>
@@ -125,7 +149,9 @@ const userState = () => {
                 <Text style={styles.nameTextBirthday}>Birthday:</Text>
               </View>
             </View>
-            <Text style={styles.nameText}>{copyBday}</Text>
+            <View style={styles.nameBottom}>
+              <Text style={styles.nameText}>{copyBday}</Text>
+            </View>
           </View>
           <View style={styles.userName}>
             <View style={styles.nameheader}>
@@ -138,7 +164,9 @@ const userState = () => {
                 <Text style={styles.nameTextInterests}>Interests:</Text>
               </View>
             </View>
-            <Text style={styles.nameText}>{copyDescription}</Text>
+            <View style={styles.nameBottom}>
+              <Text style={styles.nameText}>{copyDescription}</Text>
+            </View>
           </View>
           <View style={styles.userName}>
             <View style={styles.nameheader}>
@@ -151,7 +179,21 @@ const userState = () => {
                 <Text style={styles.nameTextIdentity}>Identity:</Text>
               </View>
             </View>
-            <Text style={styles.nameText}>{copyDescription}</Text>
+            <View style={styles.nameBottom}>
+              <Text style={styles.nameText}>{copyIdentity}</Text>
+            </View>
+          </View>
+
+          <View style={styles.userName}>
+            <View style={styles.nameheader}>
+              <Ionicons name="information-circle" size={24} color="black" />
+              <View style={styles.textContainer}>
+                <Text style={styles.nameTextIdentity}>About Me:</Text>
+              </View>
+            </View>
+            <View style={styles.nameBottom}>
+              <Text style={styles.aboutText}>{copyAbout}</Text>
+            </View>
           </View>
         </View>
       </View>
@@ -183,18 +225,20 @@ const styles = StyleSheet.create({
     backgroundColor: Themes.colors.background,
     padding: 8,
     paddingHorizontal: 40,
-    //borderColor: "red",
-    //borderWidth: 5,
+    borderColor: "purple",
+    borderWidth: 5,
   },
   smallerContainer: {
-    //borderColor: "purple",
-    //borderWidth: 5,
+    borderColor: "green",
+    borderWidth: 5,
     width: "100%",
-    height: "70%",
+    height: "80%",
   },
   info: {
     //borderColor: "orange",
     //borderWidth: 5,
+    //borderWidth: 5,
+    //borderColor: "blue",
     width: "100%",
     justifyContent: "space-around",
     height: "70%",
@@ -205,6 +249,8 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    //borderWidth: 5,
+    //borderColor: "orange",
   },
   editButton: {
     //borderColor: "orange",
@@ -221,61 +267,86 @@ const styles = StyleSheet.create({
     //borderWidth: 5,
   },
   userHeader: {
-    //borderColor: "red",
-    //borderWidth: 5,
+    borderColor: "red",
+    borderWidth: 5,
     height: "30%",
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
+    //marginVertical: 10,
   },
   userCircle: {
     // borderColor: "red",
     // borderWidth: 5,
   },
   userName: {
-    // borderColor: "green",
+    //borderColor: "green",
+    //borderWidth: 5,
+    //borderColor: "yellow",
     //borderWidth: 5,
     backgroundColor: "#ECE3CE",
     borderRadius: 20,
-    height: "25%",
+    height: "18%",
     width: "100%",
     justifyContent: "center",
   },
   nameheader: {
     flexDirection: "row",
     alignItems: "center",
-    // borderColor: "yellow",
-    // borderWidth: 5,
-    paddingHorizontal: 5,
+    //borderColor: "yellow",
+    //borderWidth: 5,
+    paddingHorizontal: 10,
+    width: "100%",
+    height: "50%",
+  },
+  nameBottom: {
+    width: "100%",
+    height: "50%",
+    //paddingHorizontal: 10,
+    //borderColor: "yellow",
+    //borderWidth: 5,
+    flexDirection: "row",
+    //alignItems: "center",
   },
   textContainer: {
     paddingHorizontal: 10,
-    // borderColor: "orange",
-    // borderWidth: 5,
+    //borderColor: "orange",
+    //borderWidth: 5,
   },
   nameTextName: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     color: "#A9B388",
+    //borderColor: "orange",
+    //borderWidth: 5,
   },
   nameTextBirthday: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     color: Themes.colors.lightShade,
   },
   nameTextIdentity: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     color: Themes.colors.darkShade,
   },
   nameTextInterests: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     color: Themes.colors.medShade,
   },
   nameText: {
     color: "#665A48",
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
+    //borderColor: "orange",
+    //borderWidth: 5,
+    paddingHorizontal: 10,
+  },
+  aboutText: {
+    color: "#665A48",
+    fontSize: 12,
+    fontWeight: "bold",
+    paddingHorizontal: 10,
   },
 });

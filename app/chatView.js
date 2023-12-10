@@ -3,6 +3,7 @@ import * as React from "react";
 import { Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Themes } from "../assets/Themes";
+import { FontAwesome } from "@expo/vector-icons";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -13,13 +14,13 @@ const chatView = () => {
       <Stack.Screen
         options={{
           title: "Chat",
-          headerTintColor: "red", // this is how to change the color of the back arrow
+          headerTintColor: Themes.colors.header, // this is how to change the color of the back arrow
           headerStyle: {
-            backgroundColor: "white",
+            backgroundColor: Themes.colors.boxBackground,
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            color: "red",
+            color: Themes.colors.header,
           },
         }}
       />
@@ -79,6 +80,14 @@ const chatView = () => {
           <View style={styles.messageBox}></View>
         </View>
       </View>
+      <View style={styles.writeMessage}>
+        <Text> Write a Message!</Text>
+        <FontAwesome
+          name="arrow-circle-up"
+          size={24}
+          color={Themes.colors.medShade}
+        />
+      </View>
     </SafeAreaView>
   );
 };
@@ -90,11 +99,11 @@ const styles = StyleSheet.create({
     flex: 1, // We'll learn about "flex" and other flexbox properties in class!
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
-    //justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
+    justifyContent: "space-around", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
     padding: 8,
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     padding: 5,
     width: "100%",
   },
@@ -114,13 +123,13 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    borderColor: Themes.colors.purple,
-    borderWidth: 5,
+    //borderColor: Themes.colors.purple,
+    //borderWidth: 5,
     backgroundColor: Themes.colors.lightShade,
   },
   leftContainer: {
     width: "100%",
-    height: 90,
+    height: 85,
     //borderColor: "yellow",
     //borderWidth: 5,
     marginTop: 5,
@@ -137,7 +146,7 @@ const styles = StyleSheet.create({
   },
   rightContainer: {
     width: "100%",
-    height: 90,
+    height: 85,
     //borderColor: "yellow",
     //borderWidth: 5,
     marginTop: 5,
@@ -160,5 +169,15 @@ const styles = StyleSheet.create({
     //borderColor: "green",
     //borderWidth: 5,
     //borderRadius: 10,
+  },
+  writeMessage: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderColor: Themes.colors.lightShade,
+    borderWidth: 2,
+    borderRadius: 10,
+    width: "100%",
+    height: "5%",
   },
 });

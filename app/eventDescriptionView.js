@@ -20,14 +20,14 @@ const eventDescriptionView = () => {
     <View style={styles.container}>
       <Stack.Screen
         options={{
-          title: "Event Description",
-          headerTintColor: "red", // this is how to change the color of the back arrow
+          title: "Event",
+          headerTintColor: Themes.colors.header, // this is how to change the color of the back arrow
           headerStyle: {
-            backgroundColor: "white",
+            backgroundColor: Themes.colors.boxBackground,
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            color: "red",
+            color: Themes.colors.header,
           },
         }}
       />

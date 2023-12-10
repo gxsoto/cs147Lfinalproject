@@ -8,4 +8,5 @@ export const colors = {
   darkShade: "#3A4D39",
   medShade: "#4F6F52",
   lightShade: "#739072",
+  header: "#665A48",
 };

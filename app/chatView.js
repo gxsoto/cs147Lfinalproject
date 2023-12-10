@@ -24,33 +24,60 @@ const chatView = () => {
         }}
       />
       <View style={styles.otherUser}>
-        <Ionicons name="person-circle-sharp" size={30} color="black" />
+        <Ionicons
+          name="person-circle-sharp"
+          size={30}
+          color={Themes.colors.background}
+        />
         <Text style={styles.paragraph}>User Name</Text>
       </View>
-
-      <View style={styles.leftMessage}>
-        <View style={styles.messageBox}></View>
+      <View style={styles.leftContainer}>
+        <View style={styles.leftMessage}>
+          <Text style={styles.leftParagraph}>Test</Text>
+          <View style={styles.messageBox}></View>
+        </View>
       </View>
-      <View style={styles.rightMessage}>
-        <View style={styles.messageBox}></View>
+      <View style={styles.rightContainer}>
+        <View style={styles.rightMessage}>
+          <Text style={styles.rightParagraph}> Test</Text>
+          <View style={styles.messageBox}></View>
+        </View>
       </View>
-      <View style={styles.leftMessage}>
-        <View style={styles.messageBox}></View>
+      <View style={styles.leftContainer}>
+        <View style={styles.leftMessage}>
+          <Text style={styles.leftParagraph}>Test</Text>
+          <View style={styles.messageBox}></View>
+        </View>
       </View>
-      <View style={styles.rightMessage}>
-        <View style={styles.messageBox}></View>
+      <View style={styles.rightContainer}>
+        <View style={styles.rightMessage}>
+          <Text style={styles.rightParagraph}> Test</Text>
+          <View style={styles.messageBox}></View>
+        </View>
       </View>
-      <View style={styles.leftMessage}>
-        <View style={styles.messageBox}></View>
+      <View style={styles.leftContainer}>
+        <View style={styles.leftMessage}>
+          <Text style={styles.leftParagraph}>Test</Text>
+          <View style={styles.messageBox}></View>
+        </View>
       </View>
-      <View style={styles.rightMessage}>
-        <View style={styles.messageBox}></View>
+      <View style={styles.rightContainer}>
+        <View style={styles.rightMessage}>
+          <Text style={styles.rightParagraph}> Test</Text>
+          <View style={styles.messageBox}></View>
+        </View>
       </View>
-      <View style={styles.leftMessage}>
-        <View style={styles.messageBox}></View>
+      <View style={styles.leftContainer}>
+        <View style={styles.leftMessage}>
+          <Text style={styles.leftParagraph}>Test</Text>
+          <View style={styles.messageBox}></View>
+        </View>
       </View>
-      <View style={styles.rightMessage}>
-        <View style={styles.messageBox}></View>
+      <View style={styles.rightContainer}>
+        <View style={styles.rightMessage}>
+          <Text style={styles.rightParagraph}> Test</Text>
+          <View style={styles.messageBox}></View>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -69,10 +96,18 @@ const styles = StyleSheet.create({
     borderColor: "red",
     borderWidth: 5,
     padding: 5,
+    width: "100%",
   },
-  paragraph: {
+  leftParagraph: {
     fontSize: 20,
     fontWeight: "bold",
+    color: Themes.colors.darkShade,
+    //textAlign: "center",
+  },
+  rightParagraph: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: Themes.colors.background,
     //textAlign: "center",
   },
   otherUser: {
@@ -81,23 +116,49 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: Themes.colors.purple,
     borderWidth: 5,
+    backgroundColor: Themes.colors.lightShade,
+  },
+  leftContainer: {
+    width: "100%",
+    height: 90,
+    //borderColor: "yellow",
+    //borderWidth: 5,
+    marginTop: 5,
+    //justifyContent: "flex-end",
+    //alignItems: "flex-end",
   },
   leftMessage: {
     flexDirection: "row",
-    marginRight: windowWidth * 0.3,
-    marginTop: 10,
+    //marginRight: windowWidth * 0.3,
+    width: "70%",
+    //marginTop: 10,
+    backgroundColor: Themes.colors.boxBackground,
+    borderRadius: 10,
+  },
+  rightContainer: {
+    width: "100%",
+    height: 90,
+    //borderColor: "yellow",
+    //borderWidth: 5,
+    marginTop: 5,
+    //justifyContent: "flex-end",
+    alignItems: "flex-end",
   },
   rightMessage: {
     flexDirection: "row",
-    marginLeft: windowWidth * 0.3,
-    marginTop: 10,
+    //marginLeft: windowWidth * 0.3,
+    width: "70%",
+    //marginTop: 10,
+    backgroundColor: Themes.colors.medShade,
+    borderRadius: 10,
   },
   messageBox: {
     //alignItems: "flex-end",
     //justifyContent: "flex-end",
     width: "100%",
     height: 80,
-    borderColor: "green",
-    borderWidth: 5,
+    //borderColor: "green",
+    //borderWidth: 5,
+    //borderRadius: 10,
   },
 });

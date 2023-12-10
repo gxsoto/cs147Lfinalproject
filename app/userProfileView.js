@@ -22,6 +22,8 @@ const userProfileView = () => {
   const [image, setImage] = useState(
     "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg"
   );
+  const [identity, setIdentity] = useState("");
+  const [aboutMe, setAboutMe] = useState("");
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -72,19 +74,55 @@ const userProfileView = () => {
   }, []);
 
   useEffect(() => {
+    const loadIdentity2 = async () => {
+      const identity = await AsyncStorage.getItem("identity2");
+      setIdentity(identity);
+    };
+    loadIdentity2();
+  }, []);
+
+  useEffect(() => {
+    const loadAbout2 = async () => {
+      const about = await AsyncStorage.getItem("about2");
+      setAboutMe(about);
+    };
+    loadAbout2();
+  }, []);
+
+  useEffect(() => {
     const saveData2 = async () => {
       try {
-        await AsyncStorage.setItem("name2", name);
-        await AsyncStorage.setItem("birthday2", birthday);
-        await AsyncStorage.setItem("interests2", description);
-        await AsyncStorage.setItem("image2", image);
+        if (name) {
+          await AsyncStorage.setItem("name2", name);
+        }
+        if (birthday) {
+          await AsyncStorage.setItem("birthday2", birthday);
+        }
+        if (description) {
+          await AsyncStorage.setItem("interests2", description);
+        }
+        if (image) {
+          await AsyncStorage.setItem("image2", image);
+        }
+        if (aboutMe) {
+          await AsyncStorage.setItem("about2", aboutMe);
+        }
+        if (identity) {
+          await AsyncStorage.setItem("identity2", identity);
+        }
+        //await AsyncStorage.setItem("name2", name);
+        //await AsyncStorage.setItem("birthday2", birthday);
+        //await AsyncStorage.setItem("interests2", description);
+        //await AsyncStorage.setItem("image2", image);
+        //await AsyncStorage.setItem("about2", aboutMe);
+        //await AsyncStorage.setItem("identity2", identity);
         console.log("save successful");
       } catch (error) {
         console.error(error);
       }
     };
     saveData2();
-  }, [name, description, image, birthday]);
+  }, [name, description, image, birthday, aboutMe, identity]);
 
   /* Code below that reroutes to parent screen with updated state variables was implemented through the help of this StackOverflow post suggested by Peng: https://stackoverflow.com/questions/76183937/passing-params-with-router-back */
   return (
@@ -92,13 +130,13 @@ const userProfileView = () => {
       <Stack.Screen
         options={{
           title: "Edit Profile",
-          headerTintColor: "red", // this is how to change the color of the back arrow
+          headerTintColor: Themes.colors.darkShade, // this is how to change the color of the back arrow
           headerStyle: {
-            backgroundColor: "white",
+            backgroundColor: "#ECE3CE",
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            color: "red",
+            color: Themes.colors.darkShade,
           },
         }}
       />
@@ -115,39 +153,64 @@ const userProfileView = () => {
           </Avatar>
         </View>
       </View>
+
       <View style={styles.userName}>
-        <Text style={styles.nameText}>Name: {name}</Text>
+        <Text style={styles.nameText}>Name:</Text>
 
         <TextInput
           style={styles.box}
           mode="outlined"
           value={name}
           onChangeText={(newName) => setName(newName)}
-          label="Input your name"
+          label="Input Your Name!"
         />
       </View>
 
       <View style={styles.userBirthday}>
-        <Text style={styles.birthdayText}>Birthday: {birthday}</Text>
+        <Text style={styles.birthdayText}>Birthday:</Text>
 
         <TextInput
           style={styles.box}
           mode="outlined"
-          label="Input your bday"
+          label="Input Your Birthday!"
           value={birthday}
           onChangeText={(newbday) => setBirthday(newbday)}
         />
       </View>
 
       <View style={styles.userDescription}>
-        <Text style={styles.descripText}>Description: {description}</Text>
+        <Text style={styles.descripText}>Interests:</Text>
 
         <TextInput
           style={styles.box}
           mode="outlined"
           onChangeText={(newDes) => setDescription(newDes)}
           value={description}
-          label="Input a short decription of yourself"
+          label="Input 3-4 Interests!"
+        />
+      </View>
+
+      <View style={styles.userName}>
+        <Text style={styles.birthdayText}>Identity:</Text>
+
+        <TextInput
+          style={styles.box}
+          mode="outlined"
+          label="Input An Identity You Align With!"
+          value={identity}
+          onChangeText={(newIdentity) => setIdentity(newIdentity)}
+        />
+      </View>
+
+      <View style={styles.userAboutMe}>
+        <Text style={styles.descripText}>About Me:</Text>
+
+        <TextInput
+          style={styles.box}
+          mode="outlined"
+          onChangeText={(newAbout) => setAboutMe(newAbout)}
+          value={aboutMe}
+          label="Input a short Description ABout Yourself"
         />
       </View>
 
@@ -162,6 +225,8 @@ const userProfileView = () => {
                 birthday: birthday,
                 description: description,
                 image: image,
+                identity: identity,
+                aboutMe: aboutMe,
               },
             });
           }}
@@ -182,7 +247,9 @@ const styles = StyleSheet.create({
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     justifyContent: "flex-start", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
-    padding: 8,
+    paddingHorizontal: 10,
+    //borderWidth: 5,
+    //borderColor: "red",
   },
   paragraph: {
     fontSize: 24,
@@ -194,16 +261,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   userHeader: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "20%",
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
+    //borderWidth: 5,
+    //borderColor: "red",
   },
   userCircle: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
   },
   nameText: {
     fontSize: 24,
@@ -218,14 +287,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   userName: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "10%",
     width: "100%",
   },
   userDescription: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "15%",
     width: "100%",
   },
@@ -234,8 +303,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   userBirthday: {
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
     height: "10%",
     width: "100%",
   },
@@ -244,20 +313,33 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   saveButton: {
-    borderColor: "orange",
-    borderWidth: 5,
+    //borderColor: "orange",
+    //borderWidth: 5,
     height: "40%",
     width: "100%",
   },
   saveText: {
-    fontSize: 25,
+    fontSize: 22,
     color: "gray",
   },
   button: {
-    borderColor: "red",
-    borderWidth: 5,
+    paddingTop: 5,
+    //borderColor: "red",
+    // borderWidth: 5,
   },
   box: {
     flex: 1,
+  },
+  userAboutMe: {
+    //borderColor: "red",
+    //orderWidth: 5,
+    height: "15%",
+    width: "100%",
+  },
+  userIdentity: {
+    //borderColor: "red",
+    //borderWidth: 5,
+    height: "15%",
+    width: "100%",
   },
 });

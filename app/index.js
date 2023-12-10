@@ -97,7 +97,7 @@ export default function App() {
           <Link href={{ pathname: "/userState" }}>
             <Ionicons
               name="person-circle-sharp"
-              size={40}
+              size={53}
               color={Themes.colors.darkShade}
             />
           </Link>
@@ -111,7 +111,7 @@ export default function App() {
               <View>
                 <Ionicons
                   name="search"
-                  size={24}
+                  size={25}
                   color={Themes.colors.darkShade}
                 />
               </View>
@@ -125,8 +125,8 @@ export default function App() {
               size={20}
               color="#3876BF"
             />
-            <Text style={styles.locateText}>
-              Click here to locate yourself and see major cities around!
+            <Text numberOfLines={2} style={styles.locateText}>
+              Click here to see major cities or events in a city searched!
             </Text>
           </Link>
         </View>
@@ -164,6 +164,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingHorizontal: 10,
+    //borderWidth: 2,
+    //borderColor: "red",
   },
   locateContainer: {
     flex: 1,
@@ -172,14 +175,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "row",
     alignItems: "center",
-    alignContent: "flex-start",
+    alignContent: "center",
   },
   search: {
+    //borderWidth: 5,
+    //borderColor: "red",
+    resizeMode: "contain",
     //marginVertical: 15,
     height: "85%",
-    //width: "90%",
-    borderWidth: 10,
-    borderColor: Themes.colors.boxBackground,
+    width: "85%",
+    //borderWidth: 10,
+    //borderColor: Themes.colors.boxBackground,
     borderRadius: 10,
     backgroundColor: Themes.colors.boxBackground,
     //justifyContent: "space-around",
@@ -200,11 +206,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   input: {
-    height: 40,
-    width: 300,
-    margin: 12,
+    height: "100%",
+    width: "85%",
+    margin: 7,
     //borderWidth: 1,
-    padding: 10,
+    padding: 15,
+    //borderWidth: 2,
+    //borderColor: "red",
   },
   button: {
     height: 40,

@@ -1,9 +1,10 @@
 import { StyleSheet, View, Alert, Image, Text } from "react-native";
-import { Stack, Link, useLocalSearchParams } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
 import MapView, { Marker, Callout } from "react-native-maps";
 import React, { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { PROVIDER_GOOGLE } from "react-native-maps";
+import { Themes } from "../assets/Themes";
 
 const mapView = () => {
   /* code below genereated from the ExpoGo MapView Docs to locate a user found here: https://github.com/react-native-maps/react-native-maps 
@@ -78,13 +79,13 @@ const mapView = () => {
       <Stack.Screen
         options={{
           title: "Map View",
-          headerTintColor: "red", // this is how to change the color of the back arrow
+          headerTintColor: Themes.colors.darkShade, // this is how to change the color of the back arrow
           headerStyle: {
-            backgroundColor: "white",
+            backgroundColor: "#ECE3CE",
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            color: "red",
+            color: Themes.colors.darkShade,
           },
         }}
       />
@@ -115,14 +116,16 @@ const styles = StyleSheet.create({
   },
   info: {
     padding: 5,
-    backgroundColor: "white",
+    backgroundColor: Themes.colors.background,
     width: 150,
-    height: 200,
+    height: 150,
     flexDirection: "column",
     borderColor: "gray",
     borderWidth: 2,
     borderRadius: 10,
     marginBottom: 10,
+    //borderColor: "orange",
+    //borderWidth: 5,
   },
   top: {
     height: "50%",
@@ -131,38 +134,42 @@ const styles = StyleSheet.create({
     alignContent: "center",
   },
   bottom: {
-    height: "50%",
+    height: "45%",
     width: "100%",
     justifyContent: "center",
     alignContent: "center",
-    borderColor: "red",
-    borderWidth: 5,
+    //borderColor: "red",
+    //borderWidth: 5,
   },
   eventImage: {
-    resizeMode: "contain",
+    //resizeMode: "contain",
     height: "100%",
     width: "100%",
     borderRadius: 10,
+    borderWidth: 3,
+    borderColor: Themes.colors.medShade,
   },
   text: {
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 12,
+    color: Themes.colors.medShade,
   },
   bottomBottom: {
     flex: 1,
-    borderColor: "yellow",
-    borderWidth: 5,
+    //borderColor: "yellow",
+    //borderWidth: 5,
   },
   bottomTop: {
     flex: 1,
-    borderColor: "green",
-    borderWidth: 5,
+    //borderColor: "green",
+    //borderWidth: 5,
   },
   descriptionText: {
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 10,
+    color: Themes.colors.medShade,
   },
   time: {
     justifyContent: "center",

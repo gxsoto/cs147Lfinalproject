@@ -104,8 +104,8 @@ const styles = StyleSheet.create({
     width: "100%",
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
-    borderWidth: 5,
-    borderColor: "yellow",
+    //borderWidth: 5,
+    //borderColor: "yellow",
   },
   eventName: {
     fontSize: 16,

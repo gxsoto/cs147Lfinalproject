@@ -17,7 +17,7 @@ const eventDescriptionView = () => {
   const params = useLocalSearchParams();
   return (
     // <SafeAreaView>
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Stack.Screen
         options={{
           title: "Event Description",
@@ -77,7 +77,7 @@ const eventDescriptionView = () => {
               <Ionicons
                 name="person-circle-sharp"
                 size={40}
-                color={Themes.colors.purple}
+                color={Themes.colors.darkShade}
               />
               <Text style={styles.userName}> User 1</Text>
             </View>
@@ -89,7 +89,7 @@ const eventDescriptionView = () => {
               <Ionicons
                 name="person-circle-sharp"
                 size={40}
-                color={Themes.colors.purple}
+                color={Themes.colors.darkShade}
               />
               <Text style={styles.userName}> User 2</Text>
             </View>
@@ -100,13 +100,13 @@ const eventDescriptionView = () => {
             <Ionicons
               name="person-circle-sharp"
               size={40}
-              color={Themes.colors.purple}
+              color={Themes.colors.darkShade}
             />
             <Text style={styles.userName}> User 3</Text>
           </View>
         </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
 
     // </SafeAreaView>
   );
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     //justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
-    padding: 8,
+    padding: 10,
   },
   /*
   biggerContainer: {
@@ -139,14 +139,17 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",
+    color: Themes.colors.darkShade,
   },
   descriptionContainer: {
     width: "100%",
     height: "25%",
     padding: 20,
     justifyContent: "space-between",
-    borderColor: "red",
-    borderWidth: 2,
+    borderColor: Themes.colors.lightShade,
+    borderWidth: 5,
+    borderRadius: 20,
+    backgroundColor: Themes.colors.boxBackground,
   },
   subHeader: {
     flexDirection: "row",
@@ -154,6 +157,7 @@ const styles = StyleSheet.create({
   paragraph: {
     fontSize: 24,
     fontWeight: "bold",
+    color: Themes.colors.darkShade,
     //textAlign: "center",
     //flexDirection: "column",
   },
@@ -170,25 +174,34 @@ const styles = StyleSheet.create({
     width: "100%",
     //justifyContent: "flex-start",
     alignItems: "flex-start",
-    borderWidth: 10,
-    borderColor: "#DDA0DD",
+    borderWidth: 8,
+    borderColor: Themes.colors.lightShade,
+    marginHorizontal: 5,
+    /*
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
+    */
+    borderRadius: 20,
   },
   eventImage: {
     height: "100%",
     width: "100%",
+    /*
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    */
     //borderTopLeftRadius: 15,
     //borderBottomLeftRadius: 15,
+    borderRadius: 10,
   },
   goingContainer: {
     width: "100%",
     alignItems: "flex-start",
     justifyContent: "flex-start",
-    borderColor: "green",
+    borderColor: Themes.colors.lightShade,
     borderWidth: 5,
+    borderRadius: 20,
+    backgroundColor: Themes.colors.boxBackground,
   },
   randomUser: {
     width: "100%",
@@ -201,5 +214,6 @@ const styles = StyleSheet.create({
   },
   userName: {
     fontSize: 20,
+    color: Themes.colors.darkShade,
   },
 });

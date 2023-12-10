@@ -76,7 +76,7 @@ export default function App() {
             <Ionicons
               name="person-circle-sharp"
               size={40}
-              color={Themes.colors.purple}
+              color={Themes.colors.darkShade}
             />
           </Link>
           <View style={styles.search}>
@@ -87,7 +87,11 @@ export default function App() {
             />
             <Pressable onPress={() => setCityName(typed)}>
               <View>
-                <Ionicons name="search" size={24} color="#AFEEEE" />
+                <Ionicons
+                  name="search"
+                  size={24}
+                  color={Themes.colors.darkShade}
+                />
               </View>
             </Pressable>
           </View>
@@ -153,9 +157,9 @@ const styles = StyleSheet.create({
     height: "85%",
     //width: "90%",
     borderWidth: 10,
-    borderColor: Themes.colors.purple,
+    borderColor: Themes.colors.boxBackground,
     borderRadius: 10,
-    backgroundColor: Themes.colors.purple,
+    backgroundColor: Themes.colors.boxBackground,
     //justifyContent: "space-around",
     flexDirection: "row",
     alignItems: "center",

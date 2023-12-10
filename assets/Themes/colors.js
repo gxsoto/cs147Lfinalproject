@@ -1,6 +1,7 @@
 export const colors = {
   //background: "#ecf0f1",
   background: "#FFFAF0",
+  boxBackground: "#ECE3CE",
   purple: "plum",
   gray: "#B3B3B3",
   white: "#FFFFFF",

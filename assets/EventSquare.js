@@ -77,9 +77,9 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: 15,
     borderWidth: 5,
-    borderColor: "#739072",
+    borderColor: Themes.colors.lightShade,
     borderRadius: 20,
-    backgroundColor: "#ECE3CE",
+    backgroundColor: Themes.colors.boxBackground,
   },
   text: {
     paddingHorizontal: 7,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   eventName: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#3A4D39",
+    color: Themes.colors.darkShade,
   },
   eventNameContainer: {
     width: "60%",

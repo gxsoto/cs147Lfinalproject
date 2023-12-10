@@ -115,7 +115,7 @@ const userProfileView = () => {
         //await AsyncStorage.setItem("interests2", description);
         //await AsyncStorage.setItem("image2", image);
         //await AsyncStorage.setItem("about2", aboutMe);
-        await AsyncStorage.setItem("identity2", identity);
+        //await AsyncStorage.setItem("identity2", identity);
         console.log("save successful");
       } catch (error) {
         console.error(error);

@@ -30,53 +30,81 @@ const chatView = () => {
           size={30}
           color={Themes.colors.background}
         />
-        <Text style={styles.paragraph}>User Name</Text>
+        <Text style={styles.paragraph}>Alex</Text>
       </View>
       <View style={styles.leftContainer}>
         <View style={styles.leftMessage}>
-          <Text style={styles.leftParagraph}>Test</Text>
+          <Text style={styles.leftParagraph}>
+            {" "}
+            No yea I've been trying to go out more often. It's why I've been
+            trying to find stuff I like lol
+          </Text>
           <View style={styles.messageBox}></View>
         </View>
       </View>
       <View style={styles.rightContainer}>
         <View style={styles.rightMessage}>
-          <Text style={styles.rightParagraph}> Test</Text>
+          <Text style={styles.rightParagraph}>
+            {" "}
+            Omg no same! What's something you're really passionate about right
+            now?
+          </Text>
           <View style={styles.messageBox}></View>
         </View>
       </View>
       <View style={styles.leftContainer}>
         <View style={styles.leftMessage}>
-          <Text style={styles.leftParagraph}>Test</Text>
+          <Text style={styles.leftParagraph}>
+            Lately, I've been diving into sustainable living practices. It's
+            been a journey, but I love it
+          </Text>
           <View style={styles.messageBox}></View>
         </View>
       </View>
       <View style={styles.rightContainer}>
         <View style={styles.rightMessage}>
-          <Text style={styles.rightParagraph}> Test</Text>
+          <Text style={styles.rightParagraph}>
+            {" "}
+            That's awesome! Any specific changes you've made that you found
+            particularly rewarding?
+          </Text>
           <View style={styles.messageBox}></View>
         </View>
       </View>
       <View style={styles.leftContainer}>
         <View style={styles.leftMessage}>
-          <Text style={styles.leftParagraph}>Test</Text>
+          <Text style={styles.leftParagraph}>
+            I've started composting, and it's surprisingly satisfying to see
+            less waste in the trash!
+          </Text>
           <View style={styles.messageBox}></View>
         </View>
       </View>
       <View style={styles.rightContainer}>
         <View style={styles.rightMessage}>
-          <Text style={styles.rightParagraph}> Test</Text>
+          <Text style={styles.rightParagraph}>
+            {" "}
+            Composting is a great step! Also, do you have a favorite subgenre of
+            jazz?
+          </Text>
           <View style={styles.messageBox}></View>
         </View>
       </View>
       <View style={styles.leftContainer}>
         <View style={styles.leftMessage}>
-          <Text style={styles.leftParagraph}>Test</Text>
+          <Text style={styles.leftParagraph}>
+            Jazz is a big part of my life and lately I've been exploring more
+            contemporary artists. Hbu?
+          </Text>
           <View style={styles.messageBox}></View>
         </View>
       </View>
       <View style={styles.rightContainer}>
         <View style={styles.rightMessage}>
-          <Text style={styles.rightParagraph}> Test</Text>
+          <Text style={styles.rightParagraph}>
+            {" "}
+            I'm into contemporary jazz too! We should swap playlists sometime!
+          </Text>
           <View style={styles.messageBox}></View>
         </View>
       </View>
@@ -102,8 +130,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-around", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
     padding: 8,
-    //borderColor: "red",
-    //borderWidth: 5,
     padding: 5,
     width: "100%",
   },
@@ -111,64 +137,44 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     color: Themes.colors.darkShade,
-    //textAlign: "center",
   },
   rightParagraph: {
     fontSize: 20,
     fontWeight: "bold",
     color: Themes.colors.background,
-    //textAlign: "center",
   },
   otherUser: {
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    //borderColor: Themes.colors.purple,
-    //borderWidth: 5,
     backgroundColor: Themes.colors.lightShade,
   },
   leftContainer: {
     width: "100%",
     height: 85,
-    //borderColor: "yellow",
-    //borderWidth: 5,
     marginTop: 5,
-    //justifyContent: "flex-end",
-    //alignItems: "flex-end",
   },
   leftMessage: {
     flexDirection: "row",
-    //marginRight: windowWidth * 0.3,
     width: "70%",
-    //marginTop: 10,
     backgroundColor: Themes.colors.boxBackground,
     borderRadius: 10,
   },
   rightContainer: {
     width: "100%",
     height: 85,
-    //borderColor: "yellow",
-    //borderWidth: 5,
     marginTop: 5,
-    //justifyContent: "flex-end",
     alignItems: "flex-end",
   },
   rightMessage: {
     flexDirection: "row",
-    //marginLeft: windowWidth * 0.3,
     width: "70%",
-    //marginTop: 10,
     backgroundColor: Themes.colors.medShade,
     borderRadius: 10,
   },
   messageBox: {
-    //alignItems: "flex-end",
-    //justifyContent: "flex-end",
     width: "100%",
     height: 80,
-    //borderColor: "green",
-    //borderWidth: 5,
-    //borderRadius: 10,
   },
   writeMessage: {
     flexDirection: "row",
@@ -179,5 +185,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: "100%",
     height: "5%",
+  },
+  paragraph: {
+    fontSize: 14,
+    color: Themes.colors.background,
   },
 });

@@ -17,7 +17,7 @@ const otherUserProfileView = () => {
     <SafeAreaView style={styles.container}>
       <Stack.Screen
         options={{
-          title: "Profile",
+          title: "Alex's Profile",
           headerTintColor: Themes.colors.header, // this is how to change the color of the back arrow
           headerStyle: {
             backgroundColor: Themes.colors.boxBackground,
@@ -34,7 +34,7 @@ const otherUserProfileView = () => {
           size={200}
           color={Themes.colors.darkShade}
         />
-        <Text style={styles.header}> User Name</Text>
+        <Text style={styles.header}> Alex Thompson</Text>
       </View>
       <Text style={styles.header}> User Info</Text>
       <View style={styles.userInfo}>
@@ -44,7 +44,7 @@ const otherUserProfileView = () => {
             size={24}
             color={Themes.colors.darkShade}
           />
-          <Text style={styles.paragraph}>Birthday: </Text>
+          <Text style={styles.paragraph}>Birthday: March 15, 1990</Text>
         </View>
         <View style={styles.userDetails}>
           <FontAwesome5
@@ -52,7 +52,7 @@ const otherUserProfileView = () => {
             size={24}
             color={Themes.colors.darkShade}
           />
-          <Text style={styles.paragraph}>Identity: </Text>
+          <Text style={styles.paragraph}>Identity: Non-binary</Text>
         </View>
         <View style={styles.userDetails}>
           <Ionicons
@@ -60,22 +60,24 @@ const otherUserProfileView = () => {
             size={24}
             color={Themes.colors.darkShade}
           />
-          <Text style={styles.paragraph}>Distance: </Text>
+          <Text style={styles.paragraph}>Distance: 3 miles away</Text>
         </View>
         <View style={styles.userDetails}>
           <FontAwesome name="heart" size={24} color={Themes.colors.darkShade} />
-          <Text style={styles.paragraph}>Interests: </Text>
+          <Text style={styles.paragraph}>Interests: Sustainability, Jazz</Text>
         </View>
       </View>
       <Text style={styles.header}> About Me</Text>
 
       <View style={styles.aboutMeContainer}>
         <Text style={styles.paragraph}>
-          Some bio info that the user put for themselves{" "}
+          Hey ! I love to engage in eco-friendly practices and try to promote
+          environmental consciousness within my community. I also love attending
+          live performances or discovering hidden gems in record stores!
         </Text>
       </View>
 
-      <Link href="/chatView" asChild>
+      <Link href="/alexChat" asChild>
         <Pressable>
           <View style={styles.messageBox}>
             <Ionicons
@@ -83,7 +85,7 @@ const otherUserProfileView = () => {
               size={24}
               color={Themes.colors.darkShade}
             />
-            <Text style={styles.linkText}>Chat with User</Text>
+            <Text style={styles.linkText}>Chat with Alex!</Text>
           </View>
         </Pressable>
       </Link>
@@ -101,17 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
     padding: 8,
-    //borderColor: "green",
-    //borderWidth: 5,
   },
-  /*
-  smallerContainer: {
-    flexDirection: "column", // Try: 'row' or 'column'
-    alignItems: "center",
-    borderColor: "red",
-    borderWidth: 5,
-  },
-  */
   header: {
     fontSize: 32,
     fontWeight: "bold",
@@ -154,9 +146,6 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
-    //borderWidth: 2,
-    //borderColor: "red",
-    //paddingHorizontal: 5,
   },
   aboutMeContainer: {
     width: "100%",
@@ -167,9 +156,6 @@ const styles = StyleSheet.create({
     backgroundColor: Themes.colors.boxBackground,
   },
   messageBox: {
-    //justifyContent: "flex-end",
-    //borderColor: "yellow",
-    //borderWidth: 5,
     alignItems: "center",
     flexDirection: "row",
   },

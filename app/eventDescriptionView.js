@@ -16,7 +16,6 @@ import { Themes } from "../assets/Themes";
 const eventDescriptionView = () => {
   const params = useLocalSearchParams();
   return (
-    // <SafeAreaView>
     <View style={styles.container}>
       <Stack.Screen
         options={{
@@ -39,17 +38,25 @@ const eventDescriptionView = () => {
       <Text style={styles.header}> Event Details</Text>
       <View style={styles.descriptionContainer}>
         <View style={styles.subHeader}>
-          <Ionicons name="calendar" size={24} color="black" />
+          <Ionicons name="calendar" size={24} color={Themes.colors.darkShade} />
           <Text style={styles.paragraph}> Date: {params.eventDeets}</Text>
         </View>
         <View style={styles.subHeader}>
-          <Ionicons name="md-aperture-outline" size={24} color="black" />
+          <Ionicons
+            name="md-aperture-outline"
+            size={24}
+            color={Themes.colors.darkShade}
+          />
           <Text style={styles.paragraph}>
             Type: {params.type} ({params.subType})
           </Text>
         </View>
         <View style={styles.subHeader}>
-          <Ionicons name="location-sharp" size={24} color="black" />
+          <Ionicons
+            name="location-sharp"
+            size={24}
+            color={Themes.colors.darkShade}
+          />
           <Text style={styles.paragraph}> Venue: {params.venue}</Text>
         </View>
         <Link
@@ -60,7 +67,7 @@ const eventDescriptionView = () => {
         >
           <View style={styles.subHeader}>
             <Entypo name="ticket" size={24} color="blue" />
-            <Text style={styles.linkText}> Buy Tickets</Text>
+            <Text style={styles.linkText}> Buy Tickets Here!</Text>
           </View>
         </Link>
       </View>
@@ -71,7 +78,7 @@ const eventDescriptionView = () => {
       </Text>
       <Text style={styles.header}> People Going:</Text>
       <View style={styles.goingContainer}>
-        <Link href={{ pathname: "/otherUserProfileView" }} asChild>
+        <Link href={{ pathname: "/alexProfileView" }} asChild>
           <Pressable>
             <View style={styles.randomUser}>
               <Ionicons
@@ -79,11 +86,11 @@ const eventDescriptionView = () => {
                 size={40}
                 color={Themes.colors.darkShade}
               />
-              <Text style={styles.userName}> User 1</Text>
+              <Text style={styles.userName}> Alex Thompson</Text>
             </View>
           </Pressable>
         </Link>
-        <Link href={{ pathname: "/otherUserProfileView" }} asChild>
+        <Link href={{ pathname: "/mayaProfileView" }} asChild>
           <Pressable>
             <View style={styles.randomUser}>
               <Ionicons
@@ -91,11 +98,11 @@ const eventDescriptionView = () => {
                 size={40}
                 color={Themes.colors.darkShade}
               />
-              <Text style={styles.userName}> User 2</Text>
+              <Text style={styles.userName}> Maya Rodriguez</Text>
             </View>
           </Pressable>
         </Link>
-        <Link href={{ pathname: "/otherUserProfileView" }} asChild>
+        <Link href={{ pathname: "/jordanProfileView" }} asChild>
           <Pressable>
             <View style={styles.randomUser}>
               <Ionicons
@@ -103,14 +110,12 @@ const eventDescriptionView = () => {
                 size={40}
                 color={Themes.colors.darkShade}
               />
-              <Text style={styles.userName}> User 3</Text>
+              <Text style={styles.userName}> Jordan Taylor</Text>
             </View>
           </Pressable>
         </Link>
       </View>
     </View>
-
-    // </SafeAreaView>
   );
 };
 
@@ -118,28 +123,13 @@ export default eventDescriptionView;
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1, // We'll learn about "flex" and other flexbox properties in class!
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
-    //justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
     backgroundColor: Themes.colors.background,
     paddingHorizontal: 20,
-    //width: "99%"
     width: "100%",
     height: "100%",
   },
-  /*
-  biggerContainer: {
-    width: "100%",
-    height: "100%",
-    borderWidth: 10,
-    borderColor: "#DDA0DD",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    alignItems: "center",
-    backgroundColor: "#DDA0DD",
-  },
-  */
   header: {
     fontSize: 32,
     fontWeight: "bold",
@@ -163,37 +153,23 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     color: Themes.colors.darkShade,
-    //textAlign: "center",
-    //flexDirection: "column",
   },
   linkText: {
     fontSize: 16,
-    //textAlign: "center",
     color: "blue",
   },
   eventImageContainer: {
     height: "35%",
     width: "100%",
-    //justifyContent: "flex-start",
     alignItems: "flex-start",
     borderWidth: 8,
     borderColor: Themes.colors.lightShade,
     marginHorizontal: 5,
-    /*
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    */
     borderRadius: 20,
   },
   eventImage: {
     height: "100%",
     width: "100%",
-    /*
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    */
-    //borderTopLeftRadius: 15,
-    //borderBottomLeftRadius: 15,
     borderRadius: 10,
   },
   goingContainer: {
@@ -205,16 +181,11 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: Themes.colors.boxBackground,
     padding: 5,
-    //marginHorizontal: 10,
   },
   randomUser: {
     width: "100%",
     alignItems: "center",
-    //justifyContent: "flex-start",
-    //borderColor: "yellow",
-    //borderWidth: 5,
     flexDirection: "row",
-    //textAlign: "center",
   },
   userName: {
     fontSize: 20,

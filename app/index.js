@@ -70,7 +70,6 @@ export default function App() {
   };
 
   useEffect(() => {
-    //console.log(cityName);
     getEvents();
   }, [cityName]);
 
@@ -90,7 +89,6 @@ export default function App() {
   }
 
   return (
-    //<SafeAreaView style={styles.bigContainer}>
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerTop}>
@@ -131,10 +129,8 @@ export default function App() {
           </Link>
         </View>
       </View>
-
       <View style={styles.content}>{contentDisplayed}</View>
     </View>
-    //</SafeAreaView>
   );
 }
 
@@ -147,11 +143,8 @@ const styles = StyleSheet.create({
     flexDirection: "column", // Try: 'row' or 'column'
     alignItems: "center", // Try: 'flex-start' or 'center' or 'flex-end'
     justifyContent: "center", // Try: 'flex-start' or 'flex-end' or 'space-between' or 'space-around' or 'space evenly'
-    //backgroundColor: "#FFFAF0",
-    //backgroundColor: "#696969",
     backgroundColor: Themes.colors.background,
     padding: 10,
-    //width: "100%",
   },
   header: {
     height: "10%",
@@ -165,30 +158,20 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 10,
-    //borderWidth: 2,
-    //borderColor: "red",
   },
   locateContainer: {
     flex: 1,
-    // borderWidth: 2,
-    // borderColor: "red",
     justifyContent: "center",
     flexDirection: "row",
     alignItems: "center",
     alignContent: "center",
   },
   search: {
-    //borderWidth: 5,
-    //borderColor: "red",
     resizeMode: "contain",
-    //marginVertical: 15,
     height: "85%",
     width: "85%",
-    //borderWidth: 10,
-    //borderColor: Themes.colors.boxBackground,
     borderRadius: 10,
     backgroundColor: Themes.colors.boxBackground,
-    //justifyContent: "space-around",
     flexDirection: "row",
     alignItems: "center",
   },
@@ -209,10 +192,7 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "85%",
     margin: 7,
-    //borderWidth: 1,
     padding: 15,
-    //borderWidth: 2,
-    //borderColor: "red",
   },
   button: {
     height: 40,
@@ -221,9 +201,5 @@ const styles = StyleSheet.create({
   locateText: {
     fontSize: 14,
     color: "#3876BF",
-    //marginHorizontal: 8,
-    //paddingHorizontal: 8,
-    // borderWidth: 2,
-    // borderColor: "red",
   },
 });

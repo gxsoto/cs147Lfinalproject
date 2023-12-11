@@ -12,8 +12,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { Themes } from "./Themes";
 
 import { Link } from "expo-router";
-//import { SafeAreaView } from "react-native-safe-area-context";
-
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
@@ -90,9 +88,6 @@ const styles = StyleSheet.create({
   },
   left: {
     flex: 1,
-    // borderWidth: 5,
-    // borderColor: "orange",
-    //height: "100%",
     alignContent: "space-around",
   },
   eventImageContainer: {
@@ -104,8 +99,6 @@ const styles = StyleSheet.create({
     width: "100%",
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
-    //borderWidth: 5,
-    //borderColor: "yellow",
   },
   eventName: {
     fontSize: 16,
@@ -115,19 +108,13 @@ const styles = StyleSheet.create({
   eventNameContainer: {
     width: "60%",
     paddingHorizontal: 5,
-    //borderWidth: 5,
-    //borderColor: "yellow",
   },
   eventLocatonContainer: {
-    // borderWidth: 5,
-    // borderColor: "red",
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 5,
   },
   day: {
-    // borderWidth: 5,
-    // borderColor: "red",
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 5,

@@ -1,5 +1,4 @@
 export const colors = {
-  //background: "#ecf0f1",
   background: "#FFFAF0",
   boxBackground: "#ECE3CE",
   purple: "plum",

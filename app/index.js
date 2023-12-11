@@ -24,6 +24,8 @@ export default function App() {
   const [string, setString] = useState("");
   let stringOfCoords = "";
 
+  /* Axios resources that helped us understand AP calls: https://www.geeksforgeeks.org/axios-in-react-a-guide-for-beginners/ ;
+  https://blog.logrocket.com/understanding-axios-get-requests/  */
   const getEvents = () => {
     axios
       .get(

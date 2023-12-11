@@ -138,11 +138,8 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignContent: "center",
-    //borderColor: "red",
-    //borderWidth: 5,
   },
   eventImage: {
-    //resizeMode: "contain",
     height: "100%",
     width: "100%",
     borderRadius: 10,
@@ -157,13 +154,9 @@ const styles = StyleSheet.create({
   },
   bottomBottom: {
     flex: 1,
-    //borderColor: "yellow",
-    //borderWidth: 5,
   },
   bottomTop: {
     flex: 1,
-    //borderColor: "green",
-    //borderWidth: 5,
   },
   descriptionText: {
     fontWeight: "bold",

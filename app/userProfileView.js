@@ -210,7 +210,7 @@ const userProfileView = () => {
           mode="outlined"
           onChangeText={(newAbout) => setAboutMe(newAbout)}
           value={aboutMe}
-          label="Input a short Description ABout Yourself"
+          label="Input a short Description About Yourself"
         />
       </View>
 

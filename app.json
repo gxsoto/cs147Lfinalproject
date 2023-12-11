@@ -16,7 +16,7 @@
       "bundleIdentifier": "com.company.cs147Lfinalproject",
       "supportsTablet": true,
       "config": {
-        "googleMapsApiKey": ""
+        "googleMapsApiKey": "AIzaSyC2YObxVZ-c_rxoHRBhxn5qERZ8zuKndbU"
       }
     },
     "android": {
